@@ -26,7 +26,8 @@
         "psr-4": {
             "Application\\": "module/Application/src/",
             "User\\": "module/User/src",
-            "Onemodule\\": "module/Onemodule/src/"
+            "Onemodule\\": "module/Onemodule/src/",
+            "Restaurant\\": "module/Restaurant/src"
         }
     },
     "autoload-dev": {
