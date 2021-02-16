@@ -8,11 +8,30 @@
 
 namespace Restaurant\Controller;
 
+use Zend\Mvc\Controller\AbstractActionController;
+use Zend\View\Model\ViewModel;
 /**
  * Description of IndexController
  *
  * @author Seva
  */
-class IndexController {
+class IndexController extends AbstractActionController {
     //put your code here
+    
+    /**
+     * @var Doctrine\ORM\EntityManager
+     */
+    private $entityManager;
+    
+    public function __construct($entityManager){
+        $this->entityManager = $entityManager;
+        ;
+    }
+    public function indexAction()
+    {
+        echo 'only hello';
+        die();
+        return new ViewModel();
+    }
+    
 }

@@ -27,7 +27,8 @@ return [
     //my modules
     
     'User',
-    'Onemodule'
+    'Onemodule',
+    'Restaurant',
     
     
 ];
