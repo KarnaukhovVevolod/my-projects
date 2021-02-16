@@ -60,6 +60,16 @@ return [
                     ],
                 ],
             ],
+            'restaurant' => [
+                'type' => Segment::class,
+                'options' => [
+                    'route' => '/restaurant[/:action]',
+                    'defaults'=>[
+                        'controller'=> Controller\RestaurantController::class,
+                        'action' => 'index',
+                    ]
+                ],
+            ],
             /* not working
             'onemoduleindex'=>[
                 'type' => Segment::class,
