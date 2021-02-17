@@ -25,7 +25,7 @@ class IndexController extends AbstractActionController {
     
     public function __construct($entityManager){
         $this->entityManager = $entityManager;
-        ;
+        
     }
     public function indexAction()
     {
@@ -33,5 +33,6 @@ class IndexController extends AbstractActionController {
         die();
         return new ViewModel();
     }
+    
     
 }

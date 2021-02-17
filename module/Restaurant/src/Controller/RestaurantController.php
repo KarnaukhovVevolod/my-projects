@@ -9,7 +9,8 @@
 namespace Restaurant\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
-use Zend\View\Model\ViewModel;
+//use Zend\View\Model\ViewModel;
+use Laminas\View\Model\ViewModel;
 use Zend\Mail;
 use Laminas\Math\Rand;
 
@@ -23,6 +24,29 @@ class RestaurantController extends AbstractActionController {
     
     public function indexAction()
     {
+        //echo 'seva';die();
         return new ViewModel();
     }
+    public function aboutAction()
+    {
+        return new ViewModel();
+    }
+    
+    public function contactAction()
+    {
+        return new ViewModel();
+    }
+    public function foodsAction()
+    {
+        return new ViewModel();
+    }
+    public function lifestyleAction()
+    {
+        return new ViewModel();
+    }
+    public function singleAction()
+    {
+        return new ViewModel();
+    }
+    
 }
