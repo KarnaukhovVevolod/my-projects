@@ -21,7 +21,14 @@ use Laminas\Math\Rand;
  */
 class RestaurantController extends AbstractActionController {
     //put your code here
-    
+    public function onDispatch(\Laminas\Mvc\MvcEvent $e)
+    {
+        $response = parent::onDispatch($e);
+        
+        $this->layout()->setTemplate('layout/layout2');
+        
+        return $response;
+    }
     public function indexAction()
     {
         //echo 'seva';die();

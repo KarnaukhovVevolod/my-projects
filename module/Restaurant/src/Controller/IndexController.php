@@ -34,5 +34,13 @@ class IndexController extends AbstractActionController {
         return new ViewModel();
     }
     
+    public function onDispath(\Laminas\Mvc\MvcEvent $e)
+    {
+        $response = parent::onDispatch($e);
+        
+        $this->layout()->setTemplate('layout/layout2');
+        
+        return $response;
+    }
     
 }
