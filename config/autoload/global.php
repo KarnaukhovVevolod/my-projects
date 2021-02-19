@@ -12,31 +12,41 @@
  */
 
 use Doctrine\DBAL\Driver\PDOMySql\Driver as PDOMySqlDriver;
-
+use Doctrine\DBAL\Driver\PDOPgSql\Driver as PDOPgSqlDriver;
 
 return [
     // ...
     'doctrine' => [
         'connection' => [
             'orm_default' => [
-                'driverClass' => PDOMySqlDriver::class,
+                //'driverClass' => PDOMySqlDriver::class,
+                'driverClass' => PDOPgSqlDriver::class,
                 'params' => [
                     'host' => 'localhost',
-                    'port' => 3306,
-                    'user' => 'root',
-                    'password' => '',
-                    'dbname' => 'zend3',
+                    //'port' => 3306,
+                    'port' => 5432,
+                    //'user' => 'root',
+                    'user' => 'postgres',
+                    //'password' => '',
+                    'password' => 'superuser_seva',
+                    //'dbname' => 'zend3',
+                    'dbname' => 'avecoder',
                     'charset' => 'utf8',
                 ]
             ],
             'orm_passport' => [
-                'driverClass' => PDOMySqlDriver::class,
+                //'driverClass' => PDOMySqlDriver::class,
+                'driverClass' => PDOPgSqlDriver::class,
                 'params' => [
                     'host' => 'localhost',
-                    'port' => 3306,
-                    'user' => 'root',
-                    'password' => '',
-                    'dbname' => 'zend3',
+                    //'port' => 3306,
+                    'port' => 5432,
+                    //'user' => 'root',
+                    'user' => 'postgres',
+                    //'password' => '',
+                    'password' => 'superuser_seva',
+                    //'dbname' => 'zend3',
+                    'dbname' => 'avecoder',
                     'charset' => 'utf8',
                 ]
             ],

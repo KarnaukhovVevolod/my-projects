@@ -26,8 +26,10 @@ return[
     ],
     'controllers' => [
         'factories' => [
-            Controller\RestaurantController::class => InvokableFactory::class,
+            //Controller\RestaurantController::class => InvokableFactory::class,
             Controller\IndexController::class => Controller\Factory\IndexControllerFactory::class,
+            Controller\RestaurantController::class => Controller\Factory\RestaurantControllerFactory::class,
+            
         ],
     ],
     'view_manager' => [
@@ -46,7 +48,7 @@ return[
             __NAMESPACE__. '_driver' => [
                 'class' => AnnotationDriver::class,
                 'cache' => 'array',
-                'path'  => [__DIR__ .'/../src/Entity']
+                'paths'  => [__DIR__ .'/../src/Entity']
             ],
             'orm_default' =>[
                 'drivers' =>[

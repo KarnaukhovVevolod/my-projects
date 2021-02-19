@@ -9,11 +9,12 @@
 namespace Restaurant\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
-//use Zend\View\Model\ViewModel;
-use Laminas\View\Model\ViewModel;
+use Zend\View\Model\ViewModel;
+//use Laminas\View\Model\ViewModel;
 use Zend\Mail;
 use Laminas\Math\Rand;
-
+use Restaurant\Entity\Employee;
+//use Restaurant\Controller\IndexController;
 /**
  * Description of RestaurantController
  *
@@ -21,6 +22,16 @@ use Laminas\Math\Rand;
  */
 class RestaurantController extends AbstractActionController {
     //put your code here
+    /**
+     * @var Doctrine\ORM\EntityManager
+    */
+    private $entityManager;
+    
+    
+    public function __construct($entityManager){
+        $this->entityManager = $entityManager;
+        
+    }
     public function onDispatch(\Laminas\Mvc\MvcEvent $e)
     {
         $response = parent::onDispatch($e);
@@ -31,7 +42,15 @@ class RestaurantController extends AbstractActionController {
     }
     public function indexAction()
     {
+        $employee = $this->entityManager
+                ->getRepository(Employee::class)
+                ->find(1);
         //echo 'seva';die();
+        $data = $employee->getAllDataEmployee();
+        debug($data);
+        //debug($employee->getId());
+        //debug($employee->getFirstName());
+        die();
         return new ViewModel();
     }
     public function aboutAction()

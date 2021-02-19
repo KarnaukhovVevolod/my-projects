@@ -10,7 +10,8 @@ namespace Restaurant\Controller\Factory;
 
 use Interop\Container\ContainerInterface;
 use Zend\ServiceManager\FactoryInterface;
-use Restaurant\Controller\IndexController;
+//use Restaurant\Controller\IndexController;
+use Restaurant\Controller\RestaurantController;
 /**
  * Description of IndexControllerFactory
  *
@@ -18,10 +19,20 @@ use Restaurant\Controller\IndexController;
  */
 class IndexControllerFactory implements FactoryInterface {
     //put your code here
-    
+    /*
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null) {
         $entityManager = $container->get('doctrine.entitymanager.orm_default');
         //$this->layout()->set
         return new IndexController($entityManager);
+    }*/
+    
+     
+    
+    public function __invoke(ContainerInterface $container, $requestedName, array $options = null) {
+        $entityManager = $container->get('doctrine.entitymanager.orm_default');
+        //$this->layout()->set
+        return new RestaurantController($entityManager);
     }
+    
+     
 }
