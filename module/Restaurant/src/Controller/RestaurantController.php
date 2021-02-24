@@ -14,6 +14,8 @@ use Zend\View\Model\ViewModel;
 use Zend\Mail;
 use Laminas\Math\Rand;
 use Restaurant\Entity\Employee;
+use Restaurant\Service\EmployeeManager;
+
 //use Restaurant\Controller\IndexController;
 /**
  * Description of RestaurantController
@@ -27,10 +29,11 @@ class RestaurantController extends AbstractActionController {
     */
     private $entityManager;
     
-    
-    public function __construct($entityManager){
+    private $employeeManager;
+            
+    public function __construct($entityManager, $employeeManager){
         $this->entityManager = $entityManager;
-        
+        $this->employeeManager = $employeeManager;
     }
     public function onDispatch(\Laminas\Mvc\MvcEvent $e)
     {
@@ -42,15 +45,31 @@ class RestaurantController extends AbstractActionController {
     }
     public function indexAction()
     {
+        /*Разные способы получения данных из базы данных*/
+        /*Способ 1 прямой sql запрос прямо в контроллере */
         $employee = $this->entityManager
                 ->getRepository(Employee::class)
                 ->find(1);
-        //echo 'seva';die();
         $data = $employee->getAllDataEmployee();
-        debug($data);
-        //debug($employee->getId());
-        //debug($employee->getFirstName());
+        //debug($data);die();
+        /*Способ 2 использовать созданный репозиторий как в документации */
+        
+        /*$employee_new = $this->employeeManager
+                ->getDataEmployee();
+        debug($employee_new);
+         * *
+         */
+        
         die();
+        /*Способ 3 использовать созданный репозиторий по своему */
+        $employee = new EmployeeManager($this->entityManager);
+        $data_3 = $employee->getDataEmployee();
+        //debug($data_3);
+        
+        
+        /**/
+        
+        //die();
         return new ViewModel();
     }
     public function aboutAction()

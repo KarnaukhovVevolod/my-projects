@@ -32,6 +32,11 @@ return[
             
         ],
     ],
+    'service_manager' => [
+        'factories' => [
+            Service\EmployeeManager::class => Service\Factory\EmployeeManagerFactory::class,
+        ],
+    ],
     'view_manager' => [
         'template_map' =>[
             //'layout/layout'     => __DIR__ . '/../view/layout/layout.phtml',

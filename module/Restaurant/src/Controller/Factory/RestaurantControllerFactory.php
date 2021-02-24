@@ -12,6 +12,7 @@ use Interop\Container\ContainerInterface;
 use Zend\ServiceManager\Factory\FactoryInterface;
 //use Laminas\ServiceManager\FactoryInterface;
 use Restaurant\Controller\RestaurantController;
+use Restaurant\Service\EmployeeManager;
 /**
  * Description of RestaurantControllerFactory
  *
@@ -21,7 +22,7 @@ class RestaurantControllerFactory implements FactoryInterface {
     //put your code here
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null) {
         $entityManager = $container->get('doctrine.entitymanager.orm_default');
-        
-        return new RestaurantController($entityManager);
+        $employeeManager = $container->get(EmployeeManager::class);
+        return new RestaurantController($entityManager,$employeeManager);
     }
 }
