@@ -1,0 +1,23 @@
+
+/*форма для вывода сообщений пользователю*/
+.close_message_email{
+    float:right;
+    margin-top:-15px;
+}
+
+.toast1-body{
+    margin-top:10px;
+}
+.toast1{
+
+    box-shadow: 0 0 10px rgb(222 132 132);
+    padding: 10px;
+    border-radius:5px;
+}
+.error_message{
+    margin-top:25px;
+    display: none;
+}
+.close_message_email:hover{
+    cursor:pointer;
+}

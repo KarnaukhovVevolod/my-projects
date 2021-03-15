@@ -35,6 +35,7 @@ return[
     'service_manager' => [
         'factories' => [
             Service\EmployeeManager::class => Service\Factory\EmployeeManagerFactory::class,
+            Service\LoadingDatabaseManager::class => Service\Factory\LoadingDatabaseManagerFactory::class,
         ],
     ],
     'view_manager' => [
@@ -61,7 +62,8 @@ return[
                 ]
             ]
         ]
-    ]
+    ],
+    
     
 ];
 

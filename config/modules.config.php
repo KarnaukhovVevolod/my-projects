@@ -19,8 +19,12 @@ return [
     'Zend\Hydrator',
     'Zend\Router',
     'Zend\Validator',
+    
+    'ZendDeveloperTools',
     'DoctrineModule',
     'DoctrineORMModule',
+    'Laminas\\DeveloperTools',
+    
     
     'Application',
     

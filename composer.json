@@ -47,5 +47,9 @@
         ],
         "serve": "php -S 0.0.0.0:8080 -t public",
         "test": "phpunit"
+    },
+    "require-dev": {
+        "zendframework/zend-developer-tools": "^2.0",
+        "laminas/laminas-developer-tools": "^2.1"
     }
 }

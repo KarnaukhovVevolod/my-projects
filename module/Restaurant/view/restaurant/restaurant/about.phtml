@@ -1,12 +1,12 @@
 
   <body>
 	  
-    <section class="hero-wrap hero-wrap-2" style="background-image: url(<?= $this->basePath('images/bg_4.jpg') ?>);">
+    <section class="hero-wrap hero-wrap-2" style="background-image: url(<?= $this->basePath($data_action['photoHead']['photo']) ?> <?php //$this->basePath('images/bg_4.jpg') ?>);">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text align-items-end justify-content-center">
           <div class="col-md-9 ftco-animate pb-5 text-center">
-            <h1 class="mb-3 bread">About Us</h1>
+            <h1 class="mb-3 bread"><?= $data_action['headHistory'] ?></h1>
             <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>About us<i class="ion-ios-arrow-forward"></i></span></p>
           </div>
         </div>
@@ -17,45 +17,45 @@
     	<div class="container">
     		<div class="row d-flex">
     			<div class="col-md-6 d-flex">
-    				<div class="img d-flex align-self-stretch" style="background-image:url(<?= $this->basePath('images/about.jpg') ?>);"></div>
+    				<div class="img d-flex align-self-stretch" style="background-image:url(<?= $this->basePath($data_action['photoAbout']['photo']) ?>);"></div>
     			</div>
     			<div class="col-md-6 pl-md-5 py-5">
     				<div class="row justify-content-start pb-3">
 		          <div class="col-md-12 heading-section ftco-animate">
-		            <h2 class="mb-4"><span>About Stories</span></h2>
-		            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
+		            <h2 class="mb-4"><span><?= $data_action['headHistory'] ?></span></h2>
+		            <p><?= $data_action['textHistory'] ?></p>
 		          </div>
 		        </div>
 		    		<div class="row">
 		          <div class="col-md-6 justify-content-center counter-wrap ftco-animate">
 		            <div class="block-18 text-center py-5 bg-light mb-4">
 		              <div class="text">
-		                <strong class="number" data-number="10">0</strong>
-		                <span>Years of Experienced</span>
+		                <strong class="number" data-number="<?= $data_action['number1'] ?>">0</strong>
+		                <span><?= $data_action['title1'] ?></span>
 		              </div>
 		            </div>
 		          </div>
 		          <div class="col-md-6 justify-content-center counter-wrap ftco-animate">
 		            <div class="block-18 text-center py-5 bg-light mb-4">
 		              <div class="text">
-		                <strong class="number" data-number="200">0</strong>
-		                <span>Foods</span>
+		                <strong class="number" data-number="<?= $data_action['number2'] ?>">0</strong>
+		                <span><?= $data_action['title2'] ?></span>
 		              </div>
 		            </div>
 		          </div>
 		          <div class="col-md-6 justify-content-center counter-wrap ftco-animate">
 		            <div class="block-18 text-center py-5 bg-light mb-4">
 		              <div class="text">
-		                <strong class="number" data-number="300">0</strong>
-		                <span>Lifestyle</span>
+		                <strong class="number" data-number="<?= $data_action['number3'] ?>">0</strong>
+		                <span><?= $data_action['title3'] ?></span>
 		              </div>
 		            </div>
 		          </div>
 		          <div class="col-md-6 justify-content-center counter-wrap ftco-animate">
 		            <div class="block-18 text-center py-5 bg-light mb-4">
 		              <div class="text">
-		                <strong class="number" data-number="40">0</strong>
-		                <span>Happy Customers</span>
+		                <strong class="number" data-number="<?= $data_action['number4'] ?>">0</strong>
+		                <span><?= $data_action['title4'] ?></span>
 		              </div>
 		            </div>
 		          </div>
@@ -72,37 +72,19 @@
 
 	        <div class="col-sm-6 col-md-6 col-lg-3 py-4 text d-flex align-items-center ftco-animate">
 	        	<div class="text-2 py-5 px-4">
-	          	<p class="mb-5"><a href="https://vimeo.com/45830194" class="btn-custom popup-vimeo">Watch Video <span class="ion-ios-play ml-4"></span></a></p>
-	            <h1 class="mb-5">Roger <br> Bosch</h1>
-	            <p class="mb-md-5">A small river named Duden flows by their place and supplies it with the necessary regelialia. Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-	            <span class="signature">Roger.Bosch</span>
+                            <?php if($data_action['video'] != null): ?>
+                                <p class="mb-5"><a href="https://vimeo.com/45830194" class="btn-custom popup-vimeo">Watch Video <span class="ion-ios-play ml-4"></span></a></p>
+                            <?php endif; ?>
+                                
+	            <h1 class="mb-5"><?= $data_action['nameHuman1'] ?> </h1>
+	            <p class="mb-md-5"><?= $data_action['textHuman'] ?></p>
+	            <span class="signature"><?= $data_action['nameHuman'] ?></span>
 	          </div>
 	        </div>
     		</div>
     	</div>
     </section>
 		
-		<section class="ftco-subscribe ftco-section bg-light">
-      <div class="overlay">
-        <div class="container">
-          <div class="row d-flex justify-content-center">
-            <div class="col-md-8 text-wrap text-center heading-section ftco-animate">
-              <h2 class="mb-4"><span>Subcribe to our Newsletter</span></h2>
-              <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-              <div class="row d-flex justify-content-center mt-4 mb-4">
-                <div class="col-md-8">
-                  <form action="#" class="subscribe-form">
-                    <div class="form-group d-flex">
-                      <input type="text" class="form-control" placeholder="Enter email address">
-                      <input type="submit" value="Subscribe" class="submit px-3">
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    
     
   </body>

@@ -51,7 +51,7 @@
             ->prependStylesheet($this->basePath('css/icomoon.css'))
             ->prependStylesheet($this->basePath('css/style.css'))
             */
-        
+        ->prependStylesheet($this->basePath('css/style_restaurant.css'))
         ->prependStylesheet($this->basePath('css/style.css'))
         ->prependStylesheet($this->basePath('css/icomoon.css'))
         ->prependStylesheet($this->basePath('css/flaticon.css'))
@@ -192,13 +192,69 @@
     <!-- END nav -->
         <div class="container1">
             <?= $this->content ?>
-            <hr>
-            <!--
+            
+            <!--<hr>
             <footer>
                 <p>&copy; 2055 - <?php // date('Y') ?> by Zend Technologies Ltd. All rights reserved.</p>
                 это мой шаблон
             </footer>
             -->
+            <section class="ftco-subscribe ftco-section bg-light">
+                <div class="overlay">
+                  <div class="container">
+                    <div class="row d-flex justify-content-center">
+                      <div class="col-md-8 text-wrap text-center heading-section ftco-animate">
+                        <h2 class="mb-4"><span><?= $this->var2['heading'] ?> </span></h2>
+                        <p><?= $this->var2['textMenu'] ?></p>
+                        <div class="row d-flex justify-content-center mt-4 mb-4">
+                          <div class="col-md-8">
+                            
+                            <!-- Форма для подписки E-mail клиента -->
+                                <?= $this->form()->openTag($mailform
+                                        ->setAttributes(['class'=>'subscribe-form'])) ?>
+
+                                <div class="form-group d-flex">
+                                    <?= $this->formLabel($mailform->get('email')) ?>
+                                    <?= $this->formElement($mailform->get('email')
+                                            ->setAttributes(['class'=>'form-control',
+                                                'placeholder'=>'Введите свой E-mail'])) ?>
+                                    <?= $this->formElementErrors($mailform->get('email')) ?>
+
+                                    <?= $this->formElement($mailform->get('submit')
+                                            ->setAttributes(['class'=>'submit px-3 emailbutton']) ) ?>    
+                                </div>
+                                <?= $this->formElement($mailform->get('csrf')); ?>
+                                <?= $this->form()->closeTag(); ?>
+                            
+                            <div class="error_message" >
+                                <div class="toast1" role="alert" aria-live="assertive" aria-atomic="false">
+                                    <div class="ml-2 mb-1 close_message_email" data-dismiss="toast" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </div>
+                                    
+                                    <div class="toast1-body">
+                                        Сообщение
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+                            <!-- вывод формы целиком
+                            <div class="col-md-8">
+                                <?php // $this->form($mailform); ?>
+                            </div>
+                            <div class="col-md-8">
+                                <?php // $this->form()->render($mailform); ?>
+                            </div>
+                            -->
+                            
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </section>
+            
+            
             <footer class="ftco-footer ftco-footer-2 ftco-section">
                 <div class="container">
                     <div class="row mb-5">
@@ -252,7 +308,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12 text-center">
-
+                            
                           <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                           Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
                           <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
@@ -287,6 +343,9 @@
             ->prependFile($this->basePath('js/js_restaurant/google-map.js'))
             ->prependFile("https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false")            
             ->prependFile($this->basePath('js/js_restaurant/scrollax.min.js'))
+                        ->prependFile($this->basePath('js/js_restaurant/my_js.js'))                 
+                        //->prependFile($this->basePath('js/js_restaurant/jquery-3.2.1.min.js'))                
+                                   
                         ->prependFile($this->basePath('js/js_restaurant/jquery.animateNumber.min.js'))
                         ->prependFile($this->basePath('js/js_restaurant/aos.js'))
                         ->prependFile($this->basePath('js/js_restaurant/jquery.magnific-popup.min.js'))
@@ -298,6 +357,7 @@
                         ->prependFile($this->basePath('js/js_restaurant/popper.min.js'))
                         ->prependFile($this->basePath('js/js_restaurant/jquery-migrate-3.0.1.min.js'))
                         ->prependFile($this->basePath('js/js_restaurant/jquery.min.js'))
+                                        
         ?>
     </body>
 </html>

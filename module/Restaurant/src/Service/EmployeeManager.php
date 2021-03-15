@@ -25,10 +25,13 @@ class EmployeeManager {
     
     public function getDataEmployee()
     {
+        
+         /* 1 - способ получения данных */
         $employee = $this->entityManager
                 ->getRepository(Employee::class)
                 ->find(1);
-        /*
+         /* 
+        // 2 - способ получения данных
         $employee = $this->entityManager
                 ->createQueryBuilder()
                 ->select('id')
@@ -37,7 +40,19 @@ class EmployeeManager {
                 ->getQuery()
                 ->getResult();
         debug($employee[0]->getAllDataEmployee());
-        die();*/
+         * *
+         */
+        //debug($employee);
+        // 3 - способ получения данных
+        $employee_createQuery = $this->entityManager
+                ->createQuery('SELECT u FROM Restaurant\Entity\Employee u')
+                ->getResult();
+        //debug($employee_createQuery);
+        //debug('$employee_createQuery сработало');
+        //$this->entityManager->createQuery('CREATE TABLE SALARY AS SELECT ID, SALARY FROM CUSTOMERS')
+        //        ->getResult();
+        //die();
+        
         $data_employee = $employee->getAllDataEmployee();
         return $data_employee;
         

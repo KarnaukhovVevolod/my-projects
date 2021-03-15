@@ -111,7 +111,8 @@ return [
             __NAMESPACE__ . '_driver' => [
                 'class' => AnnotationDriver::class,
                 'cache' => 'array',
-                'paths' => [__DIR__ . '/../src/Entity'],
+                'paths' => [__DIR__ . '/../../Restaurant/src/Entity'],
+                //'paths' => [__DIR__ . '/../src/Entity'],
             ],
             'orm_default' => [
                 'drivers' => [
