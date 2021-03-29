@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * TableAboutUsRestaurant
  *
- * @ORM\Table(name="table_about_us_restaurant", indexes={@ORM\Index(name="IDX_B6A83D73C1FA7613", columns={"photo_head_id"}), @ORM\Index(name="IDX_B6A83D7319815A0A", columns={"photo_human_id"}), @ORM\Index(name="IDX_B6A83D7329C1004E", columns={"video_id"})})
+ * @ORM\Table(name="table_about_us_restaurant", indexes={@ORM\Index(name="IDX_B6A83D73C1FA7613", columns={"photo_head_id"}), @ORM\Index(name="IDX_B6A83D7319815A0A", columns={"photo_human_id"}), @ORM\Index(name="IDX_B6A83D7329C1004E", columns={"video_id"}), @ORM\Index(name="IDX_B6A83D73FA52554", columns={"photo_about"})})
  * @ORM\Entity
  */
 class TableAboutUsRestaurant
@@ -135,6 +135,16 @@ class TableAboutUsRestaurant
      * })
      */
     private $video;
+
+    /**
+     * @var \Restaurant\Entity\Photorestaurant
+     *
+     * @ORM\ManyToOne(targetEntity="Restaurant\Entity\Photorestaurant")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="photo_about", referencedColumnName="id")
+     * })
+     */
+    private $photoAbout;
 
 
 }

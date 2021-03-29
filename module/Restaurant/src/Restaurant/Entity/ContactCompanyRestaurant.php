@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * ContactCompanyRestaurant
  *
- * @ORM\Table(name="contact_company_restaurant")
+ * @ORM\Table(name="contact_company_restaurant", indexes={@ORM\Index(name="IDX_A3E39C53C1FA7613", columns={"photo_head_id"})})
  * @ORM\Entity
  */
 class ContactCompanyRestaurant
@@ -21,13 +21,6 @@ class ContactCompanyRestaurant
      * @ORM\SequenceGenerator(sequenceName="contact_company_restaurant_id_seq", allocationSize=1, initialValue=1)
      */
     private $id;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="photo_head_id", type="bigint", nullable=false)
-     */
-    private $photoHeadId;
 
     /**
      * @var string|null
@@ -46,7 +39,7 @@ class ContactCompanyRestaurant
     /**
      * @var string
      *
-     * @ORM\Column(name="telephone_company", type="string", length=15, nullable=false)
+     * @ORM\Column(name="telephone_company", type="string", length=45, nullable=false)
      */
     private $telephoneCompany;
 
@@ -63,6 +56,16 @@ class ContactCompanyRestaurant
      * @ORM\Column(name="link_adress_site", type="string", length=150, nullable=true)
      */
     private $linkAdressSite;
+
+    /**
+     * @var \Restaurant\Entity\Photorestaurant
+     *
+     * @ORM\ManyToOne(targetEntity="Restaurant\Entity\Photorestaurant")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="photo_head_id", referencedColumnName="id")
+     * })
+     */
+    private $photoHead;
 
 
 }

@@ -12,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Photorestaurant
 {
-   /**
+    /**
      * @var int
      *
      * @ORM\Column(name="id", type="bigint", nullable=false)
@@ -20,7 +20,7 @@ class Photorestaurant
      * @ORM\GeneratedValue(strategy="SEQUENCE")
      * @ORM\SequenceGenerator(sequenceName="photorestaurant_id_seq", allocationSize=1, initialValue=1)
      */
-    protected $id;
+    private $id;
 
     /**
      * @var string
@@ -29,14 +29,5 @@ class Photorestaurant
      */
     private $photo;
 
-    public function setPhoto($photo){
-        $this->photo = $photo;
-        return $this;
-    }
-    
-    public function getAllData()
-    {
-        return ['id'=>$this->id,'photo'=>$this->photo];
-    }
 
 }

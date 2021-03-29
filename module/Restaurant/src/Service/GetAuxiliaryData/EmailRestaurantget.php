@@ -74,17 +74,18 @@ class EmailRestaurantget {
     //увеличиваем активность email пользователя +1
     public function increaseActiveEmail($dataEmail){
         $Email = $this->WriteInDatabase($dataEmail);
+        $Email = $Email[0];
         $active = $Email->getActive() + 1;
         $Email->setActive($active);
         $this->entityManager->persist($Email);
         $this->entityManager->flush();
-        return true;
+        return $Email;
     }
     
     //уменьшаем активность email пользователя -1
     public function reduceActiveEmail($dataEmail){
         $Email = $this->WriteInDatabase($dataEmail);
-        
+        $Email = $Email[0];
         $active = $Email->getActive();
         if( $active > 0 ){
             $active = $active - 1;
@@ -92,18 +93,18 @@ class EmailRestaurantget {
         $Email->setActive($active);
         $this->entityManager->persist($Email);
         $this->entityManager->flush();
-        return true;
+        return $Email;
     }
     
     //обнуляем активность email пользователя
     public function reset_to_zeroActiveEmail($dataEmail){
         $Email = $this->WriteInDatabase($dataEmail);
-        
+        $Email = $Email[0];
         $active = 0;
         
         $Email->setActive($active);
         $this->entityManager->persist($Email);
         $this->entityManager->flush();
-        return true;
+        return $Email;
     }
 }

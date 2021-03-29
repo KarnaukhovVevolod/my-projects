@@ -82,6 +82,7 @@ class MailForm extends Form {
                     'options' => [
                         'allow' => \Zend\Validator\Hostname::ALLOW_DNS,
                         'useMxCheck' => false,
+                        'max' => 120,
                     ],
                 ],
             ]

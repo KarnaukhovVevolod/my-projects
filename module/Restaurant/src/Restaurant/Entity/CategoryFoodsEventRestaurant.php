@@ -29,5 +29,12 @@ class CategoryFoodsEventRestaurant
      */
     private $namecategory;
 
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="foods_event", type="boolean", nullable=false)
+     */
+    private $foodsEvent;
+
 
 }

@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * MessagesFromUserRestaurant
  *
- * @ORM\Table(name="messages_from_user_restaurant", indexes={@ORM\Index(name="IDX_7D46EA54B897366B", columns={"date_id"})})
+ * @ORM\Table(name="messages_from_user_restaurant", indexes={@ORM\Index(name="IDX_7D46EA54B897366B", columns={"date_id"}), @ORM\Index(name="IDX_7D46EA54A832C1C9", columns={"email_id"})})
  * @ORM\Entity
  */
 class MessagesFromUserRestaurant
@@ -59,6 +59,16 @@ class MessagesFromUserRestaurant
      * })
      */
     private $date;
+
+    /**
+     * @var \Restaurant\Entity\Emailrestaurant
+     *
+     * @ORM\ManyToOne(targetEntity="Restaurant\Entity\Emailrestaurant")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="email_id", referencedColumnName="id")
+     * })
+     */
+    private $email;
 
 
 }

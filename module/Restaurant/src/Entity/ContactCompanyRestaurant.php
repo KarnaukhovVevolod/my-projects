@@ -23,9 +23,13 @@ class ContactCompanyRestaurant
     private $id;
 
     /**
-     * @var int
+     * @var \Restaurant\Entity\Photorestaurant
      *
-     * @ORM\Column(name="photo_head_id", type="bigint", nullable=false)
+     * @ORM\ManyToOne(targetEntity="Restaurant\Entity\Photorestaurant")
+     * @ORM\JoinTable(name="photorestaurant") 
+     * @ORM\JoinColumns({
+     *      @ORM\JoinColumn(name="photo_head_id", referencedColumnName="id")
+     *      })
      */
     private $photoHeadId;
 
@@ -64,5 +68,52 @@ class ContactCompanyRestaurant
      */
     private $linkAdressSite;
 
-
+    public function setPhotoHeadId($photoHeadId){
+        $this->photoHeadId = $photoHeadId;
+        return $this;
+    }
+    public function setContentWithAdress($contentWithAdress){
+        $this->contentWithAdress = $contentWithAdress;
+        return $this;
+    }
+    public function setAdressCompanyText($adressCompanyText){
+        $this->adressCompanyText = $adressCompanyText;
+        return $this;
+    }
+    public function setTelephoneCompany($telephoneCompany){
+        $this->telephoneCompany = $telephoneCompany;
+        return $this;
+    }
+    public function setEmailCompany($emailCompany){
+        $this->emailCompany = $emailCompany;
+        return $this;
+    }
+    public function setLinkAdressSite($linkAdressSite){
+        $this->linkAdressSite = $linkAdressSite;
+        return $this;
+    }
+    
+    
+    
+    public function getId(){
+        return $this->id;
+    }
+    public function getPhotoHeadId(){
+        return $this->photoHeadId;
+    }
+    public function getContentWithAdress(){
+        return $this->contentWithAdress;
+    }
+    public function getAdressCompanyText(){
+        return $this->adressCompanyText;
+    }
+    public function getTelephoneCompany(){
+        return $this->telephoneCompany;
+    }
+    public function getEmailCompany(){
+        return $this->emailCompany;
+    }
+    public function getLinkAdressSite(){
+        return $this->linkAdressSite;
+    }
 }

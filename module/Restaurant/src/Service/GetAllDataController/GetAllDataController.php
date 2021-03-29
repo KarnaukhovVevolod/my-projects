@@ -8,10 +8,17 @@
 
 namespace Restaurant\Service\GetAllDataController;
 use Restaurant\Service\GetOneAction\About;
+use Restaurant\Service\GetOneAction\Contact;
+use Restaurant\Service\GetOneAction\Lifestyle;
+
 use Restaurant\Service\DifferentOneClases\MenuSubscription;
 use Restaurant\Service\GetAuxiliaryData\EmailRestaurantget;
 
 use Restaurant\Service\GetAuxiliaryData\MainAuxiliary\MainAuxiliary;
+
+use Restaurant\Service\LoadingDatabaseContact;
+
+
 /**
  * Description of GetAllDataController
  *
@@ -28,7 +35,7 @@ class GetAllDataController {
     
     /*--- данная структура представляет шаблон делегирования ---*/
     /*--- делегирует работу в разные классы ---*/
-    public function getDataAction($action)
+    public function getDataAction($action, $param = null)
     {
         $data_action = null;
         switch ($action)
@@ -42,10 +49,18 @@ class GetAllDataController {
                 
                 break;
             case 'contact':
+                $contact = new Contact($this->entityManager);
+                $data = null;
+                $data_action = $contact->getOneAction($data);
                 break;
             case 'foods':
                 break;
             case 'lifestyle':
+                $lifestyle = new Lifestyle($this->entityManager);
+                $data = $param;
+                //debug($data);
+                //                die();
+                $data_action = $lifestyle->getOneAction($data);
                 break;
             case 'single':
                 break;
@@ -59,6 +74,21 @@ class GetAllDataController {
         return $data_action;
         
     }
+    
+    //записываем данные в базу данных
+    public function writeDataBase($action ,$data)
+    {
+        switch($action){
+            case 'contact':
+                $contact = new LoadingDatabaseContact($this->entityManager);
+                $contact->setDataContact();
+                break;
+            
+        }
+        return true;
+        
+    }
+    
     //запись или чтение вспомогательных данных
     public function loadDataBase($database, $data) //
     {
@@ -70,6 +100,7 @@ class GetAllDataController {
                 $email_write = new MainAuxiliary($this->entityManager);
                 $email_write->writeEmail($data);
                 break;
+            
         }
         return true;
         

@@ -55,6 +55,41 @@ class SortedKindsOfEventsRestaurant
      * })
      */
     private $typeEvent;
-
-
+    
+    
+    public function setLinkSortedTypeEvent($linkSortedTypeEvent){
+        $this->linkSortedTypeEvent = $linkSortedTypeEvent;
+        return $this;
+    }
+    public function setNumberOfPosts($numberOfPosts){
+        $this->numberOfPosts = $numberOfPosts;
+        return $this;
+    }
+    public function setPhoto($photo){
+        $this->photo = $photo;
+        return $this;
+    }
+    public function setTypeEvent($typeEvent){
+        $this->typeEvent = $typeEvent;
+        return $this;
+    }
+    
+    
+    public function getId(){
+        return $this->id;
+    }
+    public function getLinkSortedTypeEvent(){
+        return $this->linkSortedTypeEvent;
+    }
+    public function getNumberOfPosts(){
+        return $this->numberOfPosts;
+    }
+    public function getPhoto(){
+        return $this->photo;
+    }
+    public function getTypeEvent(){
+        return $this->typeEvent;
+    }
+    
+    
 }

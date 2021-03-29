@@ -15,7 +15,14 @@ return[
             'restaurant' =>[
                 'type' => Segment::class,
                 'options' => [
-                    'route' =>'/restaurant[/:action]',
+                    //'route' =>'/restaurant[/:action/:id]',
+                    'route' => '/restaurant[/:action][/:id][/:sort]',
+                    'constraints'=>[
+                        //'id' => '[a-zA-Z][a-zA-Z][=][0-9]*'
+                        'id' => '[a-zA-Z][a-zA-Z0-9_=-a-zA-Z0-9-]*',
+                        'sort' => '[a-zA-Z][a-zA-Z0-9_=-a-zA-Z0-9-]*',
+                        
+                    ],
                     'defaults' => [
                         'controller' => Controller\RestaurantController::class,
                         'action' => 'index',

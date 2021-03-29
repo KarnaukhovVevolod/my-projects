@@ -60,5 +60,66 @@ class MessagesFromUserRestaurant
      */
     private $date;
 
-
+    /**
+     * @var \Restaurant\Entity\Emailrestaurant
+     *
+     * @ORM\ManyToOne(targetEntity="Restaurant\Entity\Emailrestaurant")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="email_id", referencedColumnName="id")
+     * })
+     */
+    private $email;
+    
+    public function setNameUser($nameUser){
+        $this->nameUser = $nameUser;
+        return $this;
+    }
+    
+    public function setMessageSubjectUser($messageSubjectUser){
+        $this->messageSubjectUser = $messageSubjectUser;
+        return $this;
+    }
+    
+    public function setTextMessage($textMessage){
+        $this->textMessage = $textMessage;
+        return $this;
+    }
+    
+    public function setAnswered($answered){
+        $this->answered = $answered;
+        return $this;
+    }
+    
+    public function setDate($date){
+        $this->date = $date;
+        return $this;
+    }
+    
+    public function setEmail($email){
+        $this->email = $email;
+        return $this;
+    }
+    
+    
+    public function getId(){
+        return $this->id;
+    }
+    public function getNameUser(){
+        return $this->nameUser;
+    }
+    public function getMessageSubjectUser(){
+        return $this->messageSubjectUser;
+    }
+    public function getTextMessage(){
+        return $this->textMessage;
+    }
+    public function getAnswered(){
+        return $this->answered;
+    }
+    public function getDate(){
+        return $this->date;
+    }
+    public function getEmail(){
+        return $this->email;
+    }
 }

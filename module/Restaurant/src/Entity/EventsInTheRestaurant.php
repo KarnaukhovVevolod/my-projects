@@ -79,6 +79,66 @@ class EventsInTheRestaurant
      * })
      */
     private $dateEvent;
-
+    
+    
+    public function setEventName($eventName){
+        $this->eventName = $eventName;
+        return $this;
+    }
+    
+    public function setBrefDescriptionEvent($briefDescriptionEvent){
+        $this->briefDescriptionEvent = $briefDescriptionEvent;
+        return $this;
+    }
+    
+    public function setLinkToEvent($linkToEvent){
+        $this->linkToEvent = $linkToEvent;
+        return $this;
+    }
+    
+    public function setThePopularityOfTheEvent($thePopularityOfTheEvent){
+        $this->thePopularityOfTheEvent = $thePopularityOfTheEvent;
+        return $this;
+    }
+    
+    public function setPhotoForEvents($photoForEvents){
+        $this->photoForEvents = $photoForEvents;
+        return $this;
+    }
+    
+    public function setTypeEvent($typeEvent){
+        $this->typeEvent = $typeEvent;
+        return $this;
+    }
+    
+    public function setDateEvent($dateEvent){
+        $this->dateEvent = $dateEvent;
+        return $this;
+    }
+    
+    public function getId(){
+        return $this->id;
+    }
+    public function getEventName(){
+        return $this->eventName;
+    }
+    public function getBrefDescriptionEvent(){
+        return $this->briefDescriptionEvent;
+    }
+    public function getLinkToEvent(){
+        return $this->linkToEvent;
+    }
+    public function getThePopularityOfTheEvent(){
+        return $this->thePopularityOfTheEvent;
+    }
+    public function getPhotoForEvents(){
+        return $this->photoForEvents;
+    }
+    public function getTypeEvent(){
+        return $this->typeEvent;
+    }
+    public function getDateEvent(){
+        return $this->dateEvent;
+    }
 
 }

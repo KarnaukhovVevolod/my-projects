@@ -9,7 +9,6 @@
     margin-top:10px;
 }
 .toast1{
-
     box-shadow: 0 0 10px rgb(222 132 132);
     padding: 10px;
     border-radius:5px;
@@ -21,3 +20,48 @@
 .close_message_email:hover{
     cursor:pointer;
 }
+/*конец*/
+.image_address{
+    width:110%;
+}
+
+.message_contact_form .form-group{
+    margin-bottom:-15px;
+}
+.message_contact_form #submit_contact{
+    margin-top:30px;
+}
+
+/*форма для вывода сообщений для контактной формы*/
+.close_message_contact{
+    float:right;
+    margin-top:-15px;
+}
+
+.toast2-body{
+    margin-top:10px;
+}
+.toast2{
+    box-shadow: 0 0 10px rgb(222 132 132);
+    padding: 10px;
+    border-radius:5px;
+}
+.error_message_contact{
+    margin-top:25px;
+    display: none;
+}
+.close_message_contact:hover{
+    cursor:pointer;
+}
+/*конец*/
+
+.message_contact_form .form-group{
+    margin-bottom:-15px;
+}
+.message_contact_form #submit_contact{
+    margin-top:30px;
+}
+.underline_event h3{
+    color: #a0a0a0;
+}
+

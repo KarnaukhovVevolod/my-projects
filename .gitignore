@@ -4,5 +4,6 @@ config/development.config.php
 data/cache/*
 !data/cache/.gitkeep
 phpunit.xml
+public/images
 bin/
 sql_create_database.txt

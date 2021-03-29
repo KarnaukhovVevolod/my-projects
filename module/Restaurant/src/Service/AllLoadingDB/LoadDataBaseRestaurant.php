@@ -9,12 +9,15 @@
 namespace Restaurant\Service\AllLoadingDB;
 
 use Restaurant\Service\LoadingDatabaseManager;
+use Restaurant\Service\LoadingDatabaseLifestyle;
+
+
 /**
  * Description of AboutUsRestaurant
  *
  * @author Seva
  */
-class AboutUsRestaurant {
+class LoadDataBaseRestaurant {
     //put your code here
     private $entityManager;
     
@@ -30,4 +33,14 @@ class AboutUsRestaurant {
         //$loading_db->setDataAboutUs();
         $loading_db->getAboutUsData();
     }
+    
+    public function addLifestyle()
+    {
+        $load_db = new LoadingDatabaseLifestyle($this->entityManager);
+        
+        //$load_db->setDataLifeStyle();
+        $load_db->writeFonAndSideMenu();
+        
+    }
+    
 }

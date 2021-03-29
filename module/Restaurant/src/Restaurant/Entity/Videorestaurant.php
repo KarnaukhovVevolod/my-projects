@@ -28,16 +28,6 @@ class Videorestaurant
      * @ORM\Column(name="video", type="string", length=150, nullable=false)
      */
     private $video;
-    
-    public function setVideo($video){
-        $this->video = $video;
-        return $this;
-    }
-    
-    public function getAllData()
-    {
-        return ['id'=>$this->id,'video'=>$this->video];
-    }
-    
+
 
 }

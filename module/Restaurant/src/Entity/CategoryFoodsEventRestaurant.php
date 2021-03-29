@@ -28,6 +28,48 @@ class CategoryFoodsEventRestaurant
      * @ORM\Column(name="namecategory", type="string", length=100, nullable=false)
      */
     private $namecategory;
+    
+    /**
+     * @var bool|null
+     *
+     * @ORM\Column(name="foods_event", type="boolean", nullable=true)
+     */
+    private $foodsEvent;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="link", type="string", length=150, nullable=false)
+     */
+    private $link;
+    
+    
+    public function setNameCategory($namecategory){
+        $this->namecategory = $namecategory;
+        return $this;
+    }
+    
+    public function setFoodsEvent($foodsEvent){
+        $this->foodsEvent = $foodsEvent;
+        return $this;
+    }
+    public function setLink($link){
+        $this->link = $link;
+        return $this;
+    }
+    
+    public function getId(){
+        return $this->id;
+    }
+    public function getNameCategory(){
+        return $this->namecategory;
+    }
+    public function getFoodsEvent(){
+        return $this->foodsEvent;
+    } 
+    public function getLink(){
+        return $this->link;
+    }
 
 
 }

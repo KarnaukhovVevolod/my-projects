@@ -11,10 +11,7 @@ namespace Restaurant\Service\GetAuxiliaryData\MainAuxiliary;
 use Restaurant\Service\GetAuxiliaryData\DateRestaurantget;
 use Restaurant\Service\GetAuxiliaryData\VisitorSubscriptionRestaurantget;
 use Restaurant\Service\GetAuxiliaryData\EmailRestaurantget;
-
-use Restaurant\Entity\Emailrestaurant;
-use Restaurant\Entity\Daterestaurant;
-use Restaurant\Entity\VisitorSubscriptionRestaurant;
+use Restaurant\Service\GetAuxiliaryData\MessagesFURestaurantget;
 
 
 /**
@@ -36,38 +33,26 @@ class MainAuxiliary {
     
     public function writeEmail($dataemail)
     {
-        //debug('зашли');
-        //die();/**/
-        //проверяем несколькими запросами
         $Emailrest = new EmailRestaurantget($this->entityManager);
-        
         $class_email = $Emailrest->WriteInDatabase($dataemail);
-        
         if( $class_email[1] == 0 )//если такой email впервые был записан
         {
             $class_email = $class_email[0];
             //записываем дату
             $date = new \DateTime();
-            //$date = $date->format('Y-m-d');
-            //die();
             $Daterest = new DateRestaurantget($this->entityManager);
             $class_date = $Daterest->WriteInDatabase($date);
-      
             //записываем связи и подписку
             $Visitor = new VisitorSubscriptionRestaurantget($this->entityManager);
             $Visitor->WriteInDatabase_subscribe($class_date, $class_email);
-            
         }
         else
         {
             $class_email = $class_email[0];
             //записываем дату
-            
             $date = new \DateTime();
-            //$date = $date->format('Y-m-d');
             $Daterest = new DateRestaurantget($this->entityManager);
             $class_date = $Daterest->WriteInDatabase($date);
-      
             //записываем связи и подписку
             $Visitor = new VisitorSubscriptionRestaurantget($this->entityManager);
             $Visitor->WriteInDatabase_subscribe($class_date, $class_email);
@@ -83,6 +68,22 @@ class MainAuxiliary {
         */
         //debug('Успешно прошло');
         //die();
+    }
+    
+    /* записываем сообщение от пользователя (страница контакты) в базу */
+    public function writeMessageContact($message)
+    {
+        $dataemail['email'] = $message['human_email'];
+        $Emailrest = new EmailRestaurantget($this->entityManager);
+        $class_email = $Emailrest->increaseActiveEmail($dataemail);
+        
+        //записываем дату
+        $date = new \DateTime();
+        $Daterest = new DateRestaurantget($this->entityManager);
+        $class_date = $Daterest->WriteInDatabase($date);
+        //записываем связи и подписку
+        $MessagesFURest_get = new MessagesFURestaurantget($this->entityManager);
+        $MessagesFURest_get->writeMessage($message, $class_date, $class_email);
         
     }
     
