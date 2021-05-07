@@ -32,11 +32,11 @@ class LoadingDatabaseLifestyle {
     {
         //записываем события (виды событий)
         $type_event_foods = new CategoryFoodsEventRestaurantget($this->entityManager);
-        $dataTypeFoodsEvent_1 = ['Праздничные события',true,'/restaurant/public/index.php/restaurant/lifestyle&holiday_events'];
+        $dataTypeFoodsEvent_1 = ['Праздничные события',true,'/restaurant/public/index.php/restaurant/lifestyle/lifestyle0/holiday_events'];
         $type_event_1 = $type_event_foods->WriteInDatabase($dataTypeFoodsEvent_1);
-        $dataTypeFoodsEvent_2 = ['Субботние события',true,'/restaurant/public/index.php/restaurant/lifestyle&saturday_events'];
+        $dataTypeFoodsEvent_2 = ['Субботние события',true,'/restaurant/public/index.php/restaurant/lifestyle/lifestyle0/saturday_events'];
         $type_event_2 = $type_event_foods->WriteInDatabase($dataTypeFoodsEvent_2);
-        $dataTypeFoodsEvent_3 = ['Другие события',true,'/restaurant/public/index.php/restaurant/lifestyle&other_events'];
+        $dataTypeFoodsEvent_3 = ['Другие события',true,'/restaurant/public/index.php/restaurant/lifestyle/lifestyle0/other_events'];
         $type_event_3 = $type_event_foods->WriteInDatabase($dataTypeFoodsEvent_3);
         
         //записываем в таблицу отсортированных событий

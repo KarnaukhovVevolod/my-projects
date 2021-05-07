@@ -37,7 +37,7 @@ class Lifestyle implements OneActionInterface {
                 ->createQueryBuilder()
                 ->select('s as p',
                         'fon as f','menu as m2','photo_fon','menu_photo','photo_s','categ_s')
-                ->from(EventsInTheRestaurant::class,'e')
+                //->from(EventsInTheRestaurant::class,'e')
                 ->from(SortedKindsOfEventsRestaurant::class,'s')
                 ->from(PhotoFonRestaurant::class,'fon')
                 ->from(TableSideMenuRestaurant::class,'menu')

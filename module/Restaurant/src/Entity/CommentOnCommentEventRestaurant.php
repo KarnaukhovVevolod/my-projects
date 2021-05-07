@@ -25,7 +25,7 @@ class CommentOnCommentEventRestaurant
     /**
      * @var string|null
      *
-     * @ORM\Column(name="name_user", type="string", length=100, nullable=true)
+     * @ORM\Column(name="name_user", type="string", length=100, nullable=false)
      */
     private $nameUser;
 
@@ -69,12 +69,75 @@ class CommentOnCommentEventRestaurant
     /**
      * @var \Restaurant\Entity\CommentEventRestaurant
      *
-     * @ORM\ManyToOne(targetEntity="Restaurant\Entity\CommentEventRestaurant")
+     * @ORM\ManyToOne(targetEntity="Restaurant\Entity\CommentEventRestaurant", inversedBy="commentonEvent")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="id_comment_event", referencedColumnName="id")
      * })
      */
     private $idCommentEvent;
-
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="reply", type="string", length=110, nullable=false)
+     */
+    private $reply;
+    
+    public function setNameUser($nameUser){
+        $this->nameUser = $nameUser;
+        return $this;
+    }
+    public function setMessageUser($messageUser){
+        $this->messageUser = $messageUser;
+        return $this;
+    }
+    public function setPhotoUser($photoUser){
+        $this->photoUser = $photoUser;
+        return $this;
+    } 
+    public function setEmail($email){
+        $this->email = $email;
+        return $this;
+    }
+    public function setDateMessage($dateMessage){
+        $this->dateMessage = $dateMessage;
+        return $this;
+    }
+    public function setIdCommentEvent($idCommentEvent){
+        $this->idCommentEvent = $idCommentEvent;
+        return $this;
+    }
+    public function setReply($reply){ 
+        $this->reply = $reply;
+        return $this;
+    }
+    
+    
+    public function getId(){
+        return $this->id;
+    }
+    public function getNameUser(){
+        return $this->nameUser;
+    }
+    public function getMessageUser(){
+        return $this->messageUser;
+    }
+    public function getPhotoUser(){
+        return $this->photoUser;
+    } 
+    public function getEmail(){
+        return $this->email;
+    }
+    public function getDateMessage(){
+        return $this->dateMessage;
+    }
+    public function getIdCommentEvent(){
+        return $this->idCommentEvent;
+    }
+    public function getReply(){ 
+        return $this->reply;
+    }
+    
+    
 
 }

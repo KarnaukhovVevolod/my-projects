@@ -65,3 +65,211 @@
     color: #a0a0a0;
 }
 
+/*форма для комментариев*/
+.close--form{
+    //background-color: #00ffb6;
+    text-align: left;
+    width: 30%;
+    margin-left: 70%;
+}
+.close--form p {
+    margin-bottom: 0;
+    text-align:center;
+}
+.close--form:hover{
+    cursor: pointer;
+}
+.close--form p:hover{
+    color:red;
+}
+.comment-form-wrap{
+    background-color: whitesmoke;
+}
+.link-form{
+    //background-color: #00fffd;
+    float: left;
+    width: 70%;
+    text-align:center;
+    border-right:1px solid #b7a9f1;
+}
+.reply_comment{
+    float:left;
+    width:10px;
+
+    background-color: black;
+}
+.reply_client{
+    //border: 2px solid #b5e68f;
+    //box-shadow: 1px 1px 10px 5px;
+    box-shadow: 1px 1px 10px 5px #a99595;
+    display:none;
+    margin-bottom: 10px;
+    width:90%;
+    margin-left:5%;
+}
+.reply_client:hover{
+    box-shadow: 1px 1px 14px 5px #a99595;
+}
+.reply_client_column_1{
+    width:70%;
+    height:20px;
+    float:left;
+    //background-color:#007bff;
+    //background-color: #00d2ff;
+    background: linear-gradient(#007bff, #00f5ff);
+}
+.reply_client_column_2{
+    width: 30%;
+    height: 20px;
+    //background:#ff0900;
+    //background:#ffeeed;
+    //background:#ff8f8a;
+    background: linear-gradient(#ff0800,#ff8fad);
+    margin-left: 70%;
+    margin-top: -20px;
+}
+.dop_function-form{
+    display: none;
+}
+
+.width_comment_form{
+    width: 96%;
+    margin-left: 2%;
+}
+
+.reply_on_comment{
+   /*float:left;margin-top: -35px;*/
+   float: right;
+   margin-top: -35px;
+}
+
+/*скрываем образцы комментариев*/ 
+
+.clone-comment-1{
+    display: none;
+}
+.clone-comment-2{
+    display:none;
+}
+
+/* стили для вывода сообщения о добавлении комментария */
+
+#access_box{
+    display: none; 
+    border: 1px solid #d6e8fb; 
+    background: white; 
+    position: fixed; 
+    width: 240px; 
+    right: 20px; 
+    top: 80%; 
+    //-webkit-box-shadow: 0px 5px 5px 3px rgba(0, 0, 0, 0.3); 
+    //box-shadow: 0px 5px 5px 3px rgba(0, 0, 0, 0.3);
+    //box-shadow: 0px 5px 5px 3px #afd2f9; 
+    box-shadow: 5px 5px 5px 2px #b8bdfd; 
+    -webkit-border-radius: 5px; 
+    border-radius: 5px; 
+    text-align: center;
+}
+
+.access--line{
+    height:18px;
+    width: 100%;
+    background:linear-gradient(#afd2f9, #0d7aec);
+    border-top-left-radius:5px;
+    border-top-right-radius:5px;
+}
+
+#access_box p{
+    margin-top:5px;
+    margin-bottom:5px;
+    font-size:16px;
+    color:#8abbef;
+}
+
+#error_box{
+    display: none; 
+    border: 1px solid #f7c7c9; 
+    background: white; 
+    position: fixed; 
+    width: 240px; 
+    right: 20px; 
+    top: 80%; 
+    //-webkit-box-shadow: 0px 5px 5px 3px rgba(0, 0, 0, 0.3); 
+    box-shadow: 5px 5px 5px 2px #f7acac; 
+    //-webkit-border-radius: 5px; 
+    border-radius: 5px; 
+    text-align: center;
+}
+.error--line{
+    height:18px;
+    width: 100%;
+    background:linear-gradient(#fbe2e4, #f73c4e);
+    border-top-left-radius:5px;
+    border-top-right-radius:5px;
+}
+
+#error_box p{
+    margin-top:5px;
+    margin-bottom:5px;
+    font-size:16px;
+    color:#fc7582;
+}
+.upload_input_img{
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+    overflow: hidden;
+    width: 0.4px;
+    height: 0.4px;
+}
+.upload_image_{
+    margin-bottom: 60px;
+}
+.upload_image_ label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    max-width: 240px;
+    border: 2px dashed #150B22;
+    //padding: 9px 49px;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.name_my_file{
+    margin-top: -78px;
+    margin-left: 260px;
+    
+    display: none;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border: 2px dashed #b3b3b3;
+    border-radius: 6px;
+    padding-bottom: 2px;
+}
+.close_photo{
+    display:none;
+    //display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    float:right;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin-top: -35px;
+    margin-right: 3px;
+}
+.close_photo:hover{
+    cursor: pointer;
+    content: attr(data-title); 
+}
+.close_photo:hover::before{
+    content: 'Отменить';
+    color: red;
+}
+
+
+

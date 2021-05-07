@@ -93,6 +93,60 @@ class LoadingDatabaseManager {
         die();
          * *
          */
+        
+        
+        /*
+        $dir = '/xampp/htdocs/restaurant/public/photo foods';
+        $files = scandir($dir);
+        //debug($files);die();
+        $count_file = count($files);
+        $path_photo;$j = 0;
+        for( $i = 2; $i < $count_file; $i++)
+        {
+            if($files[$i] != 'bg_4.jpg')
+            {
+                $path_photo[$j] = 'images/'.$files[$i];
+                $j++;
+            }
+        }
+        foreach($path_photo as $path)
+        {
+            $photo = new Photorestaurant();
+            $photo->setPhoto($path);
+            $this->entityManager->persist($photo);
+        }
+        $this->entityManager->flush();
+        
+        debug($files);
+        debug($path_photo);
+        
+        die();
+         * 
+         */
+    }
+    
+    public function setDataPhotoSingleEvent(){
+        //$dir = '../../../../public/images';
+        $dir = '/xampp/htdocs/restaurant/public/photo event';
+        $files = scandir($dir);
+        //debug($files);
+        //die();
+        $count_file = count($files);
+        $path_photo;$j=0;
+        for( $i = 2; $i < $count_file; $i++)
+        {    
+            $path_photo[$j] = 'images/'.$files[$i];
+            $j++;            
+        }
+        foreach($path_photo as $path)
+        {
+            $photo = new Photorestaurant();
+            $photo->setPhoto($path);
+            $this->entityManager->persist($photo);
+        }
+        $this->entityManager->flush();
+        debug('photo write basedata');
+        die();
     }
     
     public function setDataAboutUs()

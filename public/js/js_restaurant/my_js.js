@@ -14,7 +14,7 @@ $(function(){
                dataType: 'json',
                data: fdata,
                success: function(data_server){
-                   console.log(data_server);
+                   //console.log(data_server);
                    if(data_server['param'] == 1){
                        $('.toast1').css({'box-shadow': '0 0 10px #10ff00'});
                    }else{

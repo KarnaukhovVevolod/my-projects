@@ -55,6 +55,40 @@ class SortedKindsOfDishRestaurant
      * })
      */
     private $typeDish;
-
+    
+    public function setLinkSortedTypeDish($linkSortedTypeDish){
+        $this->linkSortedTypeDish = $linkSortedTypeDish;
+        return $this;
+    }
+    public function setNumberOfVarietiesOfTheDish($numberOfVarietiesOfTheDish){
+        $this->numberOfVarietiesOfTheDish = $numberOfVarietiesOfTheDish;
+        return $this;
+    }
+    public function setPhoto($photo){
+        $this->photo = $photo;
+        return $this;
+    }
+    public function setTypeDish($typeDish){
+        $this->typeDish = $typeDish;
+        return $this;
+    }
+    
+    public function getId(){
+        return $this->id;
+    }
+    public function getLinkSortedTypeDish(){
+        return $this->linkSortedTypeDish;
+    }
+    public function getNumberOfVarietiesOfTheDish(){
+        return $this->numberOfVarietiesOfTheDish ;
+    }
+    public function getPhoto(){
+        return $this->photo;
+    }
+    public function getTypeDish(){
+        return $this->typeDish;
+    }
+    
+    
 
 }

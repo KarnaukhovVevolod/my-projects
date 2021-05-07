@@ -10,7 +10,8 @@ namespace Restaurant\Service\AllLoadingDB;
 
 use Restaurant\Service\LoadingDatabaseManager;
 use Restaurant\Service\LoadingDatabaseLifestyle;
-
+use Restaurant\Service\LoadingDatabaseFoods;
+use Restaurant\Service\LoadingDatabaseSingle; 
 
 /**
  * Description of AboutUsRestaurant
@@ -41,6 +42,27 @@ class LoadDataBaseRestaurant {
         //$load_db->setDataLifeStyle();
         $load_db->writeFonAndSideMenu();
         
+    }
+    public function addFoods()
+    {
+        $load_db = new LoadingDatabaseFoods($this->entityManager);
+        $load_db->setDataDish();
+        $load_db->writeFonAndSideMenu();
+        
+    }
+    public function addSingleFoods()
+    {
+        $load_db = new LoadingDatabaseSingle($this->entityManager);
+        //$load_db->writeFonAndSideMenu();
+        //$load_db->setDataSingleFoods();
+        $load_db->updateDataSingleFoods();
+    }
+    
+    public function addSingleEvents()
+    {
+        $load_db = new LoadingDatabaseSingle($this->entityManager);
+        //$load_db->setDataSingleLifestyle();
+        $load_db->writeFonAndSideMenuEvents();
     }
     
 }

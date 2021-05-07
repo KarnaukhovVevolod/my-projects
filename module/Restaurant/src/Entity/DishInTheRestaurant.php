@@ -76,6 +76,63 @@ class DishInTheRestaurant
      * })
      */
     private $typeDish;
-
+    
+    
+    public function setDishName($dishName){ 
+        $this->dishName = $dishName;
+        return $this;
+    }
+    public function setLinkToDish($linkToDish){ 
+        $this->linkToDish = $linkToDish;
+        return $this;
+    }
+    public function setPriceDish($priceDish) {
+        $this->priceDish = $priceDish;
+        return $this;
+    }
+    public function setThePopularityOfTheDish($thePopularityOfTheDish){
+        $this->thePopularityOfTheDish = $thePopularityOfTheDish;
+        return $this;
+    }
+    public function setRecipe($recipe) {
+        $this->recipe = $recipe;
+        return $this;
+    }
+    public function setPhotoForDish($photoForDish) {
+        $this->photoForDish = $photoForDish;
+        return $this;
+    }
+    public function setTypeDish($typeDish) {
+        $this->typeDish = $typeDish;
+        return $this;
+    }
+    
+    
+    
+    public function getId() {
+        return $this->id;
+    }
+    public function getDishName() {
+        return $this->dishName;
+    }
+    public function getLinkToDish(){
+        return $this->linkToDish;
+    }
+    public function getPriceDish(){
+        return $this->priceDish;
+    }
+    public function getThePopularityOfTheDish(){
+        return $this->thePopularityOfTheDish;
+    }
+    public function getRecipe(){
+        return $this->recipe;
+    }
+    public function getPhotoForDish(){
+        return $this->photoForDish;
+    }
+    public function getTypeDish(){
+        return $this->typeDish;
+    }
+    
 
 }

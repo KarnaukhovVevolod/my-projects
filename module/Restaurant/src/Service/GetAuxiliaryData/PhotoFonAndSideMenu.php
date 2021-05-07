@@ -27,6 +27,7 @@ class PhotoFonAndSideMenu {
         $this->entityManager = $entityManager;
     }
     
+    //для странички события
     public function writePhotoFon()
     {
         $photo = $this->entityManager->getRepository(Photorestaurant::class)
@@ -58,4 +59,63 @@ class PhotoFonAndSideMenu {
         $this->entityManager->persist($sideMenu);
         $this->entityManager->flush();
     }
+    
+    //для странички еда
+    public function writePhotoFonFoods()
+    {
+        $photo = $this->entityManager->getRepository(Photorestaurant::class)
+                ->find('16');
+        $photoFon = new PhotoFonRestaurant();
+        $photoFon->setPage(2)
+                ->setPhoto($photo);
+        $this->entityManager->persist($photoFon);
+        $this->entityManager->flush();
+    }
+    
+    //для single foods
+    public function writePhotoFonSingleFood()
+    {
+        $photo = $this->entityManager->getRepository(Photorestaurant::class)
+                ->find('16');
+        $photoFon = new PhotoFonRestaurant();
+        $photoFon->setPage(4)
+                ->setPhoto($photo);
+        $this->entityManager->persist($photoFon);
+        $this->entityManager->flush();
+    }
+    //для single foods
+    public function writePhotoFonSingleEvents()
+    {
+        $photo = $this->entityManager->getRepository(Photorestaurant::class)
+                ->find('16');
+        $photoFon = new PhotoFonRestaurant();
+        $photoFon->setPage(5)
+                ->setPhoto($photo);
+        $this->entityManager->persist($photoFon);
+        $this->entityManager->flush();
+    }
+    
+    public function writeSideMenuFoods()
+    {
+        $photo = $this->entityManager->getRepository(Photorestaurant::class)
+                ->find('17');
+        
+        
+        $sideMenu = new TableSideMenuRestaurant();
+        $textMenu = '<p>Привет! Меня зовут  <strong>Елена Иванова</strong>. '
+                . 'Я профессиональный повар работал в ресторанах Италии, Франции.  '
+                . 'В своих блюдах я стараюсь эксепериментировать с разными ингредиентами,  '
+                . ' создавая новое блюдо с необычным вкусом. '
+                . ' Так же я нормально отношусь к критике мох блюд и готова их изменить, если что-то не понравилось.'
+                ;
+        $sideMenu->setHead('Обо Мне')
+                ->setPage(2)
+                ->setPhoto($photo)
+                ->setTextMenu($textMenu);
+        $this->entityManager->persist($sideMenu);
+        $this->entityManager->flush();
+    }
+    
+    
+    
 }

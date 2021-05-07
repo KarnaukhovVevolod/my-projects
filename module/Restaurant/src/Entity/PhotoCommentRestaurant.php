@@ -28,6 +28,18 @@ class PhotoCommentRestaurant
      * @ORM\Column(name="photo", type="string", length=150, nullable=true)
      */
     private $photo;
-
+    
+    public function setPhoto($photo){
+        $this->photo = $photo;
+        return $this;
+    }
+    
+    public function getId(){
+        return $this->id;
+    }
+    
+    public function getPhoto(){
+        return $this->photo;
+    }
 
 }

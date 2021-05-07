@@ -51,6 +51,7 @@
             ->prependStylesheet($this->basePath('css/icomoon.css'))
             ->prependStylesheet($this->basePath('css/style.css'))
             */
+        ->prependStylesheet($this->basePath('css/css/font-awesome.min.css'))
         ->prependStylesheet($this->basePath('css/style_restaurant.css'))
         ->prependStylesheet($this->basePath('css/style.css'))
         ->prependStylesheet($this->basePath('css/icomoon.css'))
@@ -62,8 +63,9 @@
         ->prependStylesheet($this->basePath('css/owl.carousel.min.css'))
         ->prependStylesheet($this->basePath('css/animate.css'))
         ->prependStylesheet($this->basePath('css/open-iconic-bootstrap.min.css'))
-            
+        //->prependStylesheet($this->basePath('css/font-awesome.css'))    
         ?>
+        
         <!--<link rel="stylesheet" href="<?php // $this->basePath('css/style.css') ?>">
         -->
         <!-- Scripts -->
@@ -343,7 +345,9 @@
             ->prependFile($this->basePath('js/js_restaurant/google-map.js'))
             ->prependFile("https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false")            
             ->prependFile($this->basePath('js/js_restaurant/scrollax.min.js'))
-                        ->prependFile($this->basePath('js/js_restaurant/my_js.js'))                 
+                                        
+                        ->prependFile($this->basePath('js/js_restaurant/my_js.js')) 
+                        ->prependFile($this->basePath('js/js_restaurant/comment.js'))                
                         //->prependFile($this->basePath('js/js_restaurant/jquery-3.2.1.min.js'))                
                                    
                         ->prependFile($this->basePath('js/js_restaurant/jquery.animateNumber.min.js'))

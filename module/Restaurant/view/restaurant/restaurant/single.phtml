@@ -3,37 +3,91 @@
   
     <body>
 
-    <section class="hero-wrap hero-wrap-2" style="background-image: url(<?= $this->basePath('images/bg_4.jpg') ?>);">
+    <section class="hero-wrap hero-wrap-2" style="background-image: url(<?= $this->basePath($data_action[0]) ?>);">
       <div class="overlay"></div>
       <div class="container">
         <div class="row no-gutters slider-text align-items-end justify-content-center">
           <div class="col-md-9 ftco-animate pb-5 text-center">
-            <h1 class="mb-3 bread">Article Single</h1>
-            <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Article Single<i class="ion-ios-arrow-forward"></i></span></p>
+            <h1 class="mb-3 bread">
+                <?php if(isset($data_action[2]['dishId'])): ?>
+                    <?= $data_action[2]['dishId']['dishName'] ?>
+                <?php else: ?>
+                    <?= $data_action[2]['eventId']['eventName'] ?>
+                <?php endif; ?>
+            </h1>
+            <p class="breadcrumbs"><span class="mr-2"><a href="<?= $this->url('restaurant',['action'=>'index']) ?>">Главная  <i class="ion-ios-arrow-forward"></i></a></span> <span><a href="<?= $url_prev ?>"> <?= $data_action[4] ?>  <i class="ion-ios-arrow-forward"></i></a></span> 
+                <span><?php if(isset($data_action[2]['dishId'])): ?>
+                    <?= $data_action[2]['dishId']['dishName'] ?>
+                <?php else: ?>
+                    <?= $data_action[2]['eventId']['eventName'] ?>
+                <?php endif; ?><i class="ion-ios-arrow-forward"></i></span></p>
           </div>
         </div>
       </div>
     </section>
 
-		<section class="ftco-section">
+    <section class="ftco-section">
       <div class="container">
         <div class="row">
           <div class="col-lg-8 order-lg-last ftco-animate">
-            <h2 class="mb-3">It is a long established fact a reader be distracted</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, eius mollitia suscipit, quisquam doloremque distinctio perferendis et doloribus unde architecto optio laboriosam porro adipisci sapiente officiis nemo accusamus ad praesentium? Esse minima nisi et. Dolore perferendis, enim praesentium omnis, iste doloremque quia officia optio deserunt molestiae voluptates soluta architecto tempora.</p>
-            <p>
-              <img src="<?= $this->basePath('images/image_6.jpg') ?>" alt="" class="img-fluid">
-            </p>
-            <p>Molestiae cupiditate inventore animi, maxime sapiente optio, illo est nemo veritatis repellat sunt doloribus nesciunt! Minima laborum magni reiciendis qui voluptate quisquam voluptatem soluta illo eum ullam incidunt rem assumenda eveniet eaque sequi deleniti tenetur dolore amet fugit perspiciatis ipsa, odit. Nesciunt dolor minima esse vero ut ea, repudiandae suscipit!</p>
-            <h2 class="mb-3 mt-5">#2. Creative WordPress Themes</h2>
-            <p>Temporibus ad error suscipit exercitationem hic molestiae totam obcaecati rerum, eius aut, in. Exercitationem atque quidem tempora maiores ex architecto voluptatum aut officia doloremque. Error dolore voluptas, omnis molestias odio dignissimos culpa ex earum nisi consequatur quos odit quasi repellat qui officiis reiciendis incidunt hic non? Debitis commodi aut, adipisci.</p>
-            <p>
-              <img src="<?= $this->basePath('images/image_4.jpg') ?>" alt="" class="img-fluid">
-            </p>
+            <?php if( isset($data_action[2]['headDish1']) && $data_action[2]['headDish1'] != null && $data_action[2]['headDish1'] != ''): ?>
+                <h2 class="mb-3"> <?= $data_action[2]['headDish1'] ?> <!--It is a long established fact a reader be distracted--></h2>
+            <?php endif ; ?>
+            <?php if( isset($data_action[2]['headDescription1']) && $data_action[2]['headDescription1'] != null && $data_action[2]['headDescription1'] != ''): ?>
+                <h2 class="mb-3"> <?= $data_action[2]['headDescription1'] ?> </h2>
+            <?php endif ; ?>    
+            <?php if($data_action[2]['textDescription1']!= null && $data_action[2]['textDescription1'] != ''): ?>
+                <p> <?php $data_action[2]['textDescription1'] ?> <!--Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, eius mollitia suscipit, quisquam doloremque distinctio perferendis et doloribus unde architecto optio laboriosam porro adipisci sapiente officiis nemo accusamus ad praesentium? Esse minima nisi et. Dolore perferendis, enim praesentium omnis, iste doloremque quia officia optio deserunt molestiae voluptates soluta architecto tempora.--></p>
+            <?php endif; ?>
+            <?php if($data_action[2]['photo1'] != null): ?>
+                <p>
+                  <img src="<?= $this->basePath($data_action[2]['photo1']['photo']) ?>" alt="" class="img-fluid">
+                </p>
+            <?php endif; ?>
+            <?php if($data_action[2]['textDescription2'] != null && $data_action[2]['textDescription2'] != ''): ?>
+                <p><?= $data_action[2]['textDescription2'] ?> <!--Molestiae cupiditate inventore animi, maxime sapiente optio, illo est nemo veritatis repellat sunt doloribus nesciunt! Minima laborum magni reiciendis qui voluptate quisquam voluptatem soluta illo eum ullam incidunt rem assumenda eveniet eaque sequi deleniti tenetur dolore amet fugit perspiciatis ipsa, odit. Nesciunt dolor minima esse vero ut ea, repudiandae suscipit!--></p>
+            <?php endif; ?>
+            
+            <?php if( isset($data_action[2]['headDish2']) && $data_action[2]['headDish2'] != NULL && $data_action[2]['headDish2'] != '' ):  ?>
+                <h2 class="mb-3 mt-5"> <?= $data_action[2]['headDish2'] ?> <!--#2. Creative WordPress Themes--></h2>
+            <?php endif; ?>
+            <?php if( isset($data_action[2]['headDescription2']) && $data_action[2]['headDescription2'] != NULL && $data_action[2]['headDescription2'] != '' ):  ?>
+                <h2 class="mb-3 mt-5"> <?= $data_action[2]['headDescription2'] ?> <!--#2. Creative WordPress Themes--></h2>
+            <?php endif; ?>
+            <?php if($data_action[2]['textDescription3'] != null && $data_action[2]['textDescription3'] != ''): ?>     
+                <p> <?= $data_action[2] ?> <!--Temporibus ad error suscipit exercitationem hic molestiae totam obcaecati rerum, eius aut, in. Exercitationem atque quidem tempora maiores ex architecto voluptatum aut officia doloremque. Error dolore voluptas, omnis molestias odio dignissimos culpa ex earum nisi consequatur quos odit quasi repellat qui officiis reiciendis incidunt hic non? Debitis commodi aut, adipisci.--></p>
+            <?php endif; ?>
+            <?php if($data_action[2]['photo2'] != null && $data_action[2]['photo2'] != ''): ?>
+                <p>
+                  <img src="<?= $this->basePath($data_action[2]['photo2']['photo']) ?>" alt="" class="img-fluid">
+                </p>
+            <?php endif ; ?>
+            <!--    
             <p>Quisquam esse aliquam fuga distinctio, quidem delectus veritatis reiciendis. Nihil explicabo quod, est eos ipsum. Unde aut non tenetur tempore, nisi culpa voluptate maiores officiis quis vel ab consectetur suscipit veritatis nulla quos quia aspernatur perferendis, libero sint. Error, velit, porro. Deserunt minus, quibusdam iste enim veniam, modi rem maiores.</p>
             <p>Odit voluptatibus, eveniet vel nihil cum ullam dolores laborum, quo velit commodi rerum eum quidem pariatur! Quia fuga iste tenetur, ipsa vel nisi in dolorum consequatur, veritatis porro explicabo soluta commodi libero voluptatem similique id quidem? Blanditiis voluptates aperiam non magni. Reprehenderit nobis odit inventore, quia laboriosam harum excepturi ea.</p>
             <p>Adipisci vero culpa, eius nobis soluta. Dolore, maxime ullam ipsam quidem, dolor distinctio similique asperiores voluptas enim, exercitationem ratione aut adipisci modi quod quibusdam iusto, voluptates beatae iure nemo itaque laborum. Consequuntur et pariatur totam fuga eligendi vero dolorum provident. Voluptatibus, veritatis. Beatae numquam nam ab voluptatibus culpa, tenetur recusandae!</p>
             <p>Voluptas dolores dignissimos dolorum temporibus, autem aliquam ducimus at officia adipisci quasi nemo a perspiciatis provident magni laboriosam repudiandae iure iusto commodi debitis est blanditiis alias laborum sint dolore. Dolores, iure, reprehenderit. Error provident, pariatur cupiditate soluta doloremque aut ratione. Harum voluptates mollitia illo minus praesentium, rerum ipsa debitis, inventore?</p>
+            -->
+            <?php if($data_action[2]['textDescription4'] != null && $data_action[2]['textDescription4'] != ''): ?>
+            <p><?= $data_action[2]['textDescription4'] ?></p>
+            <?php endif; ?>
+            
+            <!-- всплывающее сообщение -->
+            <!--
+            <div id='error_box' style=' display: none; border: 1px solid #f7c7c9; background: #f9e5e6; position: fixed; width: 370px; right: 20px; top: 20px; -webkit-box-shadow: 0px 5px 5px 3px rgba(0, 0, 0, 0.3); box-shadow: 0px 5px 5px 3px rgba(0, 0, 0, 0.3); -webkit-border-radius: 5px; border-radius: 5px; text-align: center;'>
+                <p id='error_message' style='color: #c77c7e; margin-top: 18px; font-weight: bold;  text-shadow: 1px 1px 1px #FFFFFF; filter: dropshadow(color=#FFFFFF, offx=1, offy=1);'></p>
+            </div>
+            -->
+            
+            <div id='error_box'>
+                <div class="error--line"></div>
+                <p id='error_message'> Ошибка </p>
+            </div>
+            <div id='access_box'>
+                <div class="access--line"></div>
+                <p id='access_message'> Сообщение добавлено </p>
+            </div>
+            <!--
             <div class="tag-widget post-tag-container mb-5 mt-5">
               <div class="tagcloud">
                 <a href="#" class="tag-cloud-link">Life</a>
@@ -42,24 +96,395 @@
                 <a href="#" class="tag-cloud-link">Travel</a>
               </div>
             </div>
+            -->
+            <?php if($data_action[2]['textAutora'] != NULL && $data_action[2]['textAutora'] != ''): ?>
+                <div class="about-author d-flex p-4 bg-light">
+                    
+                    <div class="bio mr-5">
+                        <?php if($data_action[2]['photoAutor'] != null && $data_action[2]['photoAutor'] != ''): ?>
+                            <img src="<?= $this->basePath($data_action[2]['photoAutor']['photo']) ?>" alt="Image placeholder" class="img-fluid mb-4">
+                        <?php endif ; ?>
+                    </div>
+                    
+                  <div class="desc">
+                    <?php if($data_action[2]['nameAutor'] != null && $data_action[2]['nameAutor']): ?>
+                        <h3> <?= $data_action[2]['nameAutor'] ?> <!-- George Washington --></h3>
+                    <?php endif; ?>
+                    <p> <?= $data_action[2]['textAutora'] ?> <!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam! --> </p>
+                  </div>
+                </div>
+            <?php endif; ?>
             
-            <div class="about-author d-flex p-4 bg-light">
-              <div class="bio mr-5">
-                <img src="<?= $this->basePath('images/person_1.jpg') ?>" alt="Image placeholder" class="img-fluid mb-4">
-              </div>
-              <div class="desc">
-                <h3>George Washington</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
-              </div>
+            <!-- Форма для комментариев начало -->
+            
+            <?= $this->form()->openTag($CommentForm
+                    ->setAttributes(['class'=>'comment-form-wrap pt-5 comment__form','enctype'=>'multipart/form-data'])) ?>
+            <div class="width_comment_form">
+                <a name=""></a>
+                <br>
+                <div class="reply_client">
+                    <div class="reply_client_column_1"></div>
+                    <div class="reply_client_column_2"></div>
+                    <div class='link-form' name=""></div>
+                    <div class="close--form" style="display:none"> <p>Отменить <i class="fa fa-times-circle-o" aria-hidden="true"></i></p> <!--<p>Отменить &#10005;</p>--> </div>
+                </div>
+                <!-- add id_comment -->
+                <!--
+                <div class="form-group">
+                    <?php // $this->formLabel($CommentForm->get('id_comment')) ?>
+                    <?php // $this->formElement($CommentForm->get('id_comment')
+                          //  ->setAttributes(['class'=>'form-control'])) */ ?>
+                    <?php // $this->formElementErrors($CommentForm->get('id_comment')) ?>
+                </div>
+                -->
+                <!-- add name_user_comment -->
+                <div class="form-group">
+                    <?= $this->formLabel($CommentForm->get('name_user_comment')) ?>
+                    <?= $this->formElement($CommentForm->get('name_user_comment')
+                            ->setAttributes(['class'=>'form-control',
+                                'placeholder' => 'Укажите ваше имя и фамилию (Не более 100 символов)']))
+                                    ?>
+                    <?= $this->formElementErrors($CommentForm->get('name_user_comment')) ?>
+                </div>
+                <div class="error_message_contact" >
+                        <div class="toast2" role="alert" aria-live="assertive" aria-atomic="false">
+                            <div class="ml-2 mb-1 close_message_contact" data-dismiss="toast" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </div>
+
+                            <div class="toast2-body">
+                                Сообщение
+                            </div>
+                        </div>
+                </div>
+
+                <!-- add photo_user -->
+                <div class="form-group upload_image_">
+                    
+                    <?= $this->formElement($CommentForm->get('photo_user')
+                            ->setAttributes(['class'=>'form-control upload_input_img',
+                                'placeholder' => 'Загрузить фото'])) 
+                      ?>
+                    <?= $this->formLabel($CommentForm->get('photo_user')) ?>
+                    <?= $this->formElementErrors($CommentForm->get('photo_user')) ?>
+                    <div class="name_my_file"></div><i class="close_photo fa-times " data-title="Отменить" aria-hidden="true"></i>
+                </div>
+                <div class="error_message_contact" >
+                    <div class="toast2" role="alert" aria-live="assertive" aria-atomic="false">
+                        <div class="ml-2 mb-1 close_message_contact" data-dismiss="toast" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </div>
+
+                        <div class="toast2-body">
+                            Сообщение
+                        </div>
+                    </div>
+                </div>
+                <!-- add email_user_comment -->
+                <div class="form-group">
+                    <?= $this->formLabel($CommentForm->get('email_user_comment')) ?>
+                    <?= $this->formElement($CommentForm->get('email_user_comment')
+                            ->setAttributes(['class'=>'form-control',
+                                'placeholder' => 'Введите ваш E-mail не более 100 символов (необязательно)'])) ?>
+                    <?= $this->formElementErrors($CommentForm->get('email_user_comment')) ?>
+                </div>
+                <div class="error_message_contact" >
+                   <div class="toast2" role="alert" aria-live="assertive" aria-atomic="false">
+                       <div class="ml-2 mb-1 close_message_contact" data-dismiss="toast" aria-label="Close">
+                           <span aria-hidden="true">&times;</span>
+                       </div>
+
+                       <div class="toast2-body">
+                           Сообщение
+                       </div>
+                   </div>
+                </div>
+                 <!-- add message_user_comment -->
+                <div class="form-group">
+                    <?= $this->formLabel($CommentForm->get('message_user_comment')) ?>
+                    <?= $this->formElement($CommentForm->get('message_user_comment')
+                            ->setAttributes(['class'=>'form-control',
+                                'placeholder' => 'Ваше сообщение не более 1000 символов'])) 
+                      ?>
+
+                    <?= $this->formElementErrors($CommentForm->get('message_user_comment')) ?>
+                </div>
+                <div class="error_message_contact" >
+                   <div class="toast2" role="alert" aria-live="assertive" aria-atomic="false">
+                       <div class="ml-2 mb-1 close_message_contact" data-dismiss="toast" aria-label="Close">
+                           <span aria-hidden="true">&times;</span>
+                       </div>
+
+                       <div class="toast2-body">
+                           Сообщение
+                       </div>
+                   </div>
+                </div>
+                <div class="dop_function-form">
+                    <!-- add id_descriptionDish -->
+                    <div class="form-group">
+                        <?= $this->formLabel($CommentForm->get('id_descriptionDish')) ?>
+                        <?= $this->formElement($CommentForm->get('id_descriptionDish')
+                                ->setAttributes(['class'=>'form-control','value'=>$data_action[2]['id']])) ?>
+                        <?= $this->formElementErrors($CommentForm->get('id_descriptionDish')) ?>
+                    </div>
+                    <?php /* */ ?>
+                    <!-- add id_commentDish -->
+                    <div class="form-group">
+                        <?= $this->formLabel($CommentForm->get('id_commentDish')) ?>
+                        <?= $this->formElement($CommentForm->get('id_commentDish')
+                                ->setAttributes(['class'=>'form-control'])) ?>
+                        <?= $this->formElementErrors($CommentForm->get('id_commentDish')) ?>
+                    </div>
+                    <!-- add reply -->
+                    <div class="form-group">
+                        <?= $this->formLabel($CommentForm->get('reply')) ?>
+                        <?= $this->formElement($CommentForm->get('reply')
+                                ->setAttributes(['class'=>'form-control','value'=>0])) ?>
+                        <?= $this->formElementErrors($CommentForm->get('reply')) ?>
+                    </div>
+                    <!-- add field foods-life -->
+                    
+                    <div class="form-group">
+                        <?= $this->formLabel($CommentForm->get('foods-life')) ?>
+                        <?php if($data_action[4] != 'События'): ?>
+                            <?= $this->formElement($CommentForm->get('foods-life')
+                                ->setAttributes(['class'=>'form-control','value'=>1])) ?>
+                        <?php else: ?>
+                            <?= $this->formElement($CommentForm->get('foods-life')
+                                ->setAttributes(['class'=>'form-control','value'=>0])) ?>
+                        <?php endif; ?>
+                        <?= $this->formElementErrors($CommentForm->get('foods-life')) ?>
+                    </div>
+                    
+                    <!-- add field reply_name -->
+                    <div class="form-group">
+                        <?= $this->formLabel($CommentForm->get('reply_name')) ?>
+                        <?= $this->formElement($CommentForm->get('reply_name')
+                                ->setAttributes(['class'=>'form-control'])) ?>
+                        <?= $this->formElementErrors($CommentForm->get('reply_name')) ?>
+                    </div>
+                </div>
+                    
+                <div class="form-group">
+                    <?= $this->formElement($CommentForm->get('submit')
+                            ->setAttributes(['class'=>'btn py-3 px-4 btn-primary button__comment'])) ?>
+                </div>
+
+                <div class="error_message_contact" >
+                    <div class="toast2" role="alert" aria-live="assertive" aria-atomic="false">
+                        <div class="ml-2 mb-1 close_message_contact" data-dismiss="toast" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </div>
+
+                        <div class="toast2-body">
+                            Сообщение
+                        </div>
+                    </div>
+                </div>
             </div>
+            <?= $this->formElement($CommentForm->get('csrf')); ?>
+            <?= $this->form()->closeTag(); ?>
+            <!-- Форма для комментариев конец -->
+            
+            
+            <?php if($data_action[4] != 'События'): ?>
+                <?php $commenton = 'commentDish'; ?>
+            <?php else: ?>
+                <?php $commenton = 'commentonEvent'; ?>
+            <?php endif; ?>
+            <!-- (начало) блок для клонирования и для вставки комментария 1  -->
+            <ul class="comment-list comment-list-all">
+                
+                <?php if( $data_action[2]['commentAll'] != null ): ?>
+                    <?php foreach( $data_action[2]['commentAll'] as $single_external_comment ): ?>
+                        <li class="comment comment-message">
+                            <?php if($single_external_comment['photoUser'] != null): ?>
+                                <div class="vcard bio photo--com1">
+                                    <img src="<?= $this->basePath($single_external_comment['photoUser']['photo']) ?>" alt="Image placeholder">
+                                </div>
+                            <?php else: ?>
+                                <div class="vcard bio photo--com2">
+                                    <i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i> <!--  -->
+                                </div>
+                            <?php endif; ?>
+                            <div class="comment-body">
+                                <h3><?= $single_external_comment['nameUser'] ?></h3>
+                                <div class="meta"><?= $single_external_comment['dateMessage']['date']->format('Y-m-d') ?></div>
+                                <p><?= $single_external_comment['messageUser'] ?></p>
+                                <p><a href="#form-com" class="reply">Ответить</a></p>
+                            </div>
 
+                            <ul class="children" data-id-comment="<?= $single_external_comment['id'] ?>">
+                            <?php if($single_external_comment[$commenton] != null): ?>
+                                <?php foreach($single_external_comment[$commenton] as $single_internal_comment): ?> 
+                                    <li class="comment">
+                                        <?php if($single_internal_comment['photoUser'] != null): ?>
+                                            <div class="vcard bio">
+                                                <img src="<?= $this->basePath($single_internal_comment['photoUser']['photo']) ?>" alt="Image placeholder">
+                                            </div>
+                                        <?php else: ?>
+                                            <div class="vcard bio photo--com2">
+                                                <i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i> <!--  -->
+                                            </div>
+                                        <?php endif; ?>
+                                        <div class="comment-body">
+                                            <h3><?= $single_internal_comment['nameUser'] ?></h3>
+                                            <div class="meta"><?= $single_internal_comment['dateMessage']['date']->format('Y-m-d') ?></div>
+                                            <p><?= $single_internal_comment['messageUser'] ?></p>
+                                            <p><a href="#form-com" class="reply">Ответить</a></p>
+                                        </div>
+                                    </li>
+                                <?php endforeach ;?>
+                            <?php endif; ?>
+                            </ul>
+                        </li>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+                <!--
+                <li class="comment comment-message">
+                    <div class="vcard bio">
+                        <img src="<?php // $this->basePath('images/person_1.jpg') ?>" alt="Image placeholder">
+                    </div>
+                    <div class="comment-body">
+                        <h3>John Doe 11</h3>
+                        <div class="meta"> дата </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                        <p><a href="#form-com" class="reply">Reply</a></p>
+                    </div>
 
+                    <ul class="children" data-id-comment='1'>
+                        <li class="comment">
+                            <div class="vcard bio">
+                                <img src="<?php // $this->basePath('images/person_1.jpg') ?>" alt="Image placeholder">
+                            </div>
+                            <div class="comment-body">
+                                <h3>John Doe new reply 1</h3>
+                                <div class="meta">October</div>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                                <p><a href="#form-com" class="reply">Reply</a></p>
+                            </div>
+                        </li>
+                         <li class="comment">
+                            <div class="vcard bio">
+                                <img src="<?php //$this->basePath('images/person_1.jpg') ?>" alt="Image placeholder">
+                            </div>
+                            <div class="comment-body">
+                                <h3>John Doe new reply 2</h3>
+                                <div class="meta">October</div>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                                <p><a href="#form-com" class="reply">Reply</a></p>
+                            </div>
+                        </li>
+                    </ul>
+
+                </li>
+                
+                <li class="comment comment-message">
+                    <div class="vcard bio">
+                        <img src="<?php //$this->basePath('images/person_1.jpg') ?>" alt="Image placeholder">
+                    </div>
+                    <div class="comment-body">
+                        <h3>John Doe 2-comment</h3>
+                        <div class="meta">October</div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                        <p><a href="#form-com" class="reply">Reply</a></p>
+                    </div>
+                    
+                    <ul class="children" data-id-comment='2'>
+                        <li class="comment">
+                            <div class="vcard bio">
+                                <img src="<?php //$this->basePath('images/person_1.jpg') ?>" alt="Image placeholder">
+                            </div>
+                            <div class="comment-body">
+                                <h3>John Doe new reply 2.1</h3>
+                                <div class="meta">October</div>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                                <p><a href="#form-com" class="reply">Reply</a></p>
+                            </div>
+                        </li>
+                        <li class="comment">
+                            <div class="vcard bio">
+                                <img src="<?php // $this->basePath('images/person_1.jpg') ?>" alt="Image placeholder">
+                            </div>
+                            <div class="comment-body">
+                                <h3>John Doe new reply 2.2</h3>
+                                <div class="meta">October</div>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                                <p><a href="#form-com" class="reply">Reply</a></p>
+                            </div>
+                        </li>
+                        <li class="comment">
+                            <div class="vcard bio">
+                                <i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i>
+                            </div>
+                            <div class="comment-body">
+                                <h3>John Doe new reply 2.2</h3>
+                                <div class="meta">October</div>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                                <p><a href="#form-com" class="reply">Reply</a></p>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+                -->
+            </ul>
+            <!-- (конец) блок для клонирования и для вставки комментария 1 -->
+            <!-- ========================1(start)========================== -->
+            <!-- (начало) блок для клонирования и для вставки комментария 1 -->
+            <li class="comment comment-message clone-comment-1">
+                <div class="vcard bio photo--com1">
+                    <img src="<?= $this->basePath('images/person_1.jpg') ?>" alt="Image placeholder">
+                </div>
+                <div class="vcard bio photo--com2">
+                    <i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i> <!--  -->
+                </div>
+                <div class="comment-body">
+                    <h3>John Doe 2-comment</h3>
+                    <div class="meta">October</div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                    <p><a href="#form-com" class="reply">Ответить</a></p>
+                </div>
+
+                <ul class="children" data-id-comment=''></ul>
+            </li>
+            <!-- (конец) блок для клонирования и для вставки комментария 1 -->
+            <!-- =========================1(end)=========================== -->
+            
+            <!-- ========================2(start)========================== -->
+            <!-- (начало) блок для клонирования и для вставки комментария 2 -->
+            <li class="comment clone-comment-2">
+                <div class="vcard bio photo--com1">
+                    <img src="<?= $this->basePath('images/person_1.jpg') ?>" alt="Image placeholder">
+                </div>
+                <div class="vcard bio photo--com2">
+                    <i class="fa fa-user-circle-o fa-3x" aria-hidden="true"></i> <!--  -->
+                </div>
+                
+                <div class="comment-body">
+                    <h3>John Doe 2-comment</h3>
+                    <div class="reply_on_comment"></div>
+                    <div class="meta">October</div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                    <p><a href="#form-com" class="reply">Ответить</a></p>
+                </div>
+            </li>
+            <!-- (конец) блок для клонирования и для вставки комментария 2 -->
+            <!-- =========================2(end)=========================== -->
+            
+            <!-- ========================3(start)========================== -->
+            <!-- Форма для клонирования начало -->
+            
+            <!-- Форма для клонирования конец -->
+            <!-- =========================3(end)=========================== -->
+            <!-- комментарии начало -->
+            <!--
             <div class="pt-5 mt-5">
               <h3 class="mb-5">6 Comments</h3>
               <ul class="comment-list">
                 <li class="comment">
                   <div class="vcard bio">
-                    <img src="<?= $this->basePath('images/person_1.jpg') ?>" alt="Image placeholder">
+                    <img src="<?php // $this->basePath('images/person_1.jpg') ?>" alt="Image placeholder">
                   </div>
                   <div class="comment-body">
                     <h3>John Doe</h3>
@@ -71,7 +496,7 @@
 
                 <li class="comment">
                   <div class="vcard bio">
-                    <img src="<?= $this->basePath('images/person_1.jpg') ?>" alt="Image placeholder">
+                    <img src="<?php // $this->basePath('images/person_1.jpg') ?>" alt="Image placeholder">
                   </div>
                   <div class="comment-body">
                     <h3>John Doe</h3>
@@ -83,7 +508,7 @@
                   <ul class="children">
                     <li class="comment">
                       <div class="vcard bio">
-                        <img src="<?= $this->basePath('images/person_1.jpg') ?>" alt="Image placeholder">
+                        <img src="<?php // $this->basePath('images/person_1.jpg') ?>" alt="Image placeholder">
                       </div>
                       <div class="comment-body">
                         <h3>John Doe</h3>
@@ -96,7 +521,7 @@
                       <ul class="children">
                         <li class="comment">
                           <div class="vcard bio">
-                            <img src="<?= $this->basePath('images/person_1.jpg') ?>" alt="Image placeholder">
+                            <img src="<?php //$this->basePath('images/person_1.jpg') ?>" alt="Image placeholder">
                           </div>
                           <div class="comment-body">
                             <h3>John Doe</h3>
@@ -108,7 +533,7 @@
                             <ul class="children">
                               <li class="comment">
                                 <div class="vcard bio">
-                                  <img src="<?= $this->basePath('images/person_1.jpg') ?>" alt="Image placeholder">
+                                  <img src="<?php //$this->basePath('images/person_1.jpg') ?>" alt="Image placeholder">
                                 </div>
                                 <div class="comment-body">
                                   <h3>John Doe</h3>
@@ -126,7 +551,7 @@
 
                 <li class="comment">
                   <div class="vcard bio">
-                    <img src="<?= $this->basePath('images/person_1.jpg') ?>" alt="Image placeholder">
+                    <img src="<?php // $this->basePath('images/person_1.jpg') ?>" alt="Image placeholder">
                   </div>
                   <div class="comment-body">
                     <h3>John Doe</h3>
@@ -137,6 +562,120 @@
                 </li>
               </ul>
               <!-- END comment-list -->
+        <!--  
+              <div class="comment-form-wrap pt-5">
+                <h3 class="mb-5">Leave a comment</h3>
+                <form action="#" class="p-5 bg-light">
+                  <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input type="text" class="form-control" id="name">
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" class="form-control" id="email">
+                  </div>
+                  <div class="form-group">
+                    <label for="website">Website</label>
+                    <input type="url" class="form-control" id="website">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea name="" id="message" cols="30" rows="10" class="form-control"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <input type="submit" value="Post Comment" class="btn py-3 px-4 btn-primary">
+                  </div>
+
+                </form>
+              </div>
+            </div>
+        -->
+            <!-- комментарии конец -->
+            <!--
+            <div class="pt-5 mt-5">
+              <h3 class="mb-5">6 Comments</h3>
+              <ul class="comment-list">
+                <li class="comment">
+                  <div class="vcard bio">
+                    <img src="<?php // $this->basePath('images/person_1.jpg') ?>" alt="Image placeholder">
+                  </div>
+                  <div class="comment-body">
+                    <h3>John Doe</h3>
+                    <div class="meta">October 03, 2018 at 2:21pm</div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                    <p><a href="#" class="reply">Reply</a></p>
+                  </div>
+                </li>
+
+                <li class="comment">
+                  <div class="vcard bio">
+                    <img src="<?php // $this->basePath('images/person_1.jpg') ?>" alt="Image placeholder">
+                  </div>
+                  <div class="comment-body">
+                    <h3>John Doe</h3>
+                    <div class="meta">October 03, 2018 at 2:21pm</div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                    <p><a href="#" class="reply">Reply</a></p>
+                  </div>
+
+                  <ul class="children">
+                    <li class="comment">
+                      <div class="vcard bio">
+                        <img src="<?php // $this->basePath('images/person_1.jpg') ?>" alt="Image placeholder">
+                      </div>
+                      <div class="comment-body">
+                        <h3>John Doe</h3>
+                        <div class="meta">October 03, 2018 at 2:21pm</div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                        <p><a href="#" class="reply">Reply</a></p>
+                      </div>
+
+
+                      <ul class="children">
+                        <li class="comment">
+                          <div class="vcard bio">
+                            <img src="<?php // $this->basePath('images/person_1.jpg') ?>" alt="Image placeholder">
+                          </div>
+                          <div class="comment-body">
+                            <h3>John Doe</h3>
+                            <div class="meta">October 03, 2018 at 2:21pm</div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                            <p><a href="#" class="reply">Reply</a></p>
+                          </div>
+
+                            <ul class="children">
+                              <li class="comment">
+                                <div class="vcard bio">
+                                  <img src="<?php // $this->basePath('images/person_1.jpg') ?>" alt="Image placeholder">
+                                </div>
+                                <div class="comment-body">
+                                  <h3>John Doe</h3>
+                                  <div class="meta">October 03, 2018 at 2:21pm</div>
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                                  <p><a href="#" class="reply">Reply</a></p>
+                                </div>
+                              </li>
+                            </ul>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="comment">
+                  <div class="vcard bio">
+                    <img src="<?php // $this->basePath('images/person_1.jpg') ?>" alt="Image placeholder">
+                  </div>
+                  <div class="comment-body">
+                    <h3>John Doe</h3>
+                    <div class="meta">October 03, 2018 at 2:21pm</div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
+                    <p><a href="#" class="reply">Reply</a></p>
+                  </div>
+                </li>
+              </ul>
+              
               
               <div class="comment-form-wrap pt-5">
                 <h3 class="mb-5">Leave a comment</h3>
@@ -165,7 +704,7 @@
                 </form>
               </div>
             </div>
-
+            -->
           </div> <!-- .col-md-8 -->
           <div class="col-lg-4 sidebar pr-lg-5 ftco-animate">
             <div class="sidebar-box">
@@ -178,20 +717,64 @@
             </div>
             <div class="sidebar-box ftco-animate">
               <ul class="categories">
-                <h3 class="heading mb-4">Categories</h3>
+                <h3 class="heading mb-4">Категории</h3>
+                <!--
                 <li><a href="#">Travel <span>(12)</span></a></li>
                 <li><a href="#">Tour <span>(22)</span></a></li>
                 <li><a href="#">Destination <span>(37)</span></a></li>
                 <li><a href="#">Drinks <span>(42)</span></a></li>
                 <li><a href="#">Foods <span>(14)</span></a></li>
                 <li><a href="#">Travel <span>(140)</span></a></li>
+                -->
+                <?php if($data_action[1] != null): ?>
+                
+                    <?php foreach($data_action[1] as $one_category): ?>
+                        <?php if(isset($one_category['0']['typeDish'])): ?>
+                            <li><a href="<?= $one_category['0']['typeDish']['link'] ?>"><?= $one_category[0]['typeDish']['namecategory'] ?><span>(<?= $one_category['s1']['numberOfVarietiesOfTheDish'] ?>)</span></a></li>
+                        <?php endif; ?>
+                        <?php if(isset($one_category['0']['typeEvent'])): ?>
+                            <li><a href="<?= $one_category['0']['typeEvent']['link'] ?>"><?= $one_category[0]['typeEvent']['namecategory'] ?><span>(<?= $one_category['s1']['numberOfPosts'] ?>)</span></a></li>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                  
+                <?php endif; ?>    
               </ul>
             </div>
-
+            
+            <?php if( $data_action[3] != NULL ): ?>
+                <?php if($data_action[4] != 'События'): ?>
+                    <?php $link = 'linkToDish'; 
+                          $name = 'dishName';
+                          $photo_for = 'photoForDish';
+                    ?>
+                <?php else: ?>
+                    <?php $link = 'linkToEvent';
+                          $name = 'eventName';
+                          $photo_for = 'photoForEvents';
+                    ?>
+              
+              <?php endif; ?>
             <div class="sidebar-box ftco-animate">
-              <h3 class="heading mb-4">Recent Blog</h3>
+                <h3 class="heading mb-4">Последние посты</h3>
+                <?php foreach( $data_action[3] as $one_product ): ?>
+                    <div class="block-21 mb-4 d-flex">
+                        <a href="<?= $one_product[$link] ?>" class="blog-img mr-4" style="background-image: url(<?= $this->basePath($one_product[0][$photo_for]['photo']) ?>);"></a>
+                        <div class="text">
+                            <h3><a href="<?= $one_product[$link] ?>"> <?= $one_product[$name] ?> <!--Even the all-powerful Pointing has no control about the blind texts--></a></h3>
+                            <?php if( isset($one_product[0]['dateEvent']) ): ?>
+                                <div class="meta">
+                                  <div><a href="<?= $one_product[$link] ?>"><span class="icon-calendar"></span> <?= $one_product[0]['dateEvent']['date']->format('Y-m-d') ?> <!--February 12, 2019--> </a></div>
+                                  <div><a href="<?= $one_product[$link] ?>"><span class="icon-person"></span> Admin</a></div>
+                                  <!--<div><a href="#"><span class="icon-chat"></span> 19</a></div>-->
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+                
+              <!--
               <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url(<?= $this->basePath('images/image_1.jpg') ?>);"></a>
+                <a class="blog-img mr-4" style="background-image: url(<?php // $this->basePath('images/image_1.jpg') ?>);"></a>
                 <div class="text">
                   <h3><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
                   <div class="meta">
@@ -201,8 +784,9 @@
                   </div>
                 </div>
               </div>
+              
               <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url(<?= $this->basePath('images/image_2.jpg') ?>);"></a>
+                <a class="blog-img mr-4" style="background-image: url(<?php // $this->basePath('images/image_2.jpg') ?>);"></a>
                 <div class="text">
                   <h3><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
                   <div class="meta">
@@ -212,8 +796,10 @@
                   </div>
                 </div>
               </div>
+              
+              
               <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url(<?= $this->basePath('images/image_3.jpg') ?>);"></a>
+                <a class="blog-img mr-4" style="background-image: url(<?php // $this->basePath('images/image_3.jpg') ?>);"></a>
                 <div class="text">
                   <h3><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
                   <div class="meta">
@@ -223,8 +809,11 @@
                   </div>
                 </div>
               </div>
+              -->
+              
             </div>
-
+            <?php endif; ?>  
+            <!--  
             <div class="sidebar-box ftco-animate">
               <h3 class="heading mb-4">Tag Cloud</h3>
               <div class="tagcloud">
@@ -243,33 +832,29 @@
               <h3 class="heading mb-4">Paragraph</h3>
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
             </div>
+            -->  
+            <!-- всплывающее сообщение -->
+            <!--
+            <div id='error_box' style=' display: none; border: 1px solid #f7c7c9; background: #f9e5e6; position: fixed; width: 370px; right: 20px; top: 20px; -webkit-box-shadow: 0px 5px 5px 3px rgba(0, 0, 0, 0.3); box-shadow: 0px 5px 5px 3px rgba(0, 0, 0, 0.3); -webkit-border-radius: 5px; border-radius: 5px; text-align: center;'>
+                <p id='error_message' style='color: #c77c7e; margin-top: 18px; font-weight: bold;  text-shadow: 1px 1px 1px #FFFFFF; filter: dropshadow(color=#FFFFFF, offx=1, offy=1);'></p>
+            </div>
+            
+            
+            <div id='error_box'>
+                <div class="error--line"></div>
+                <p id='error_message'> Ошибка </p>
+            </div>
+            <div id='access_box'>
+                <div class="access--line"></div>
+                <p id='access_message'> Сообщение добавлено </p>
+            </div>
+            <div class="click_message">Click message</div>
+            -->
           </div>
 
         </div>
       </div>
     </section> <!-- .section -->
 		
-		<section class="ftco-subscribe ftco-section bg-light">
-      <div class="overlay">
-        <div class="container">
-          <div class="row d-flex justify-content-center">
-            <div class="col-md-8 text-wrap text-center heading-section ftco-animate">
-              <h2 class="mb-4"><span>Subcribe to our Newsletter</span></h2>
-              <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-              <div class="row d-flex justify-content-center mt-4 mb-4">
-                <div class="col-md-8">
-                  <form action="#" class="subscribe-form">
-                    <div class="form-group d-flex">
-                      <input type="text" class="form-control" placeholder="Enter email address">
-                      <input type="submit" value="Subscribe" class="submit px-3">
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
     
   </body>

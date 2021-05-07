@@ -17,6 +17,8 @@ use Restaurant\Service\GetAuxiliaryData\EmailRestaurantget;
 use Restaurant\Service\GetAuxiliaryData\MainAuxiliary\MainAuxiliary;
 
 use Restaurant\Service\LoadingDatabaseContact;
+use Restaurant\Service\GetOneAction\Foods;
+use Restaurant\Service\GetOneAction\Single;
 
 
 /**
@@ -54,6 +56,10 @@ class GetAllDataController {
                 $data_action = $contact->getOneAction($data);
                 break;
             case 'foods':
+                $foods = new Foods($this->entityManager);
+                $data = $param;
+                $data_action = $foods->getOneAction($data);
+                
                 break;
             case 'lifestyle':
                 $lifestyle = new Lifestyle($this->entityManager);
@@ -63,6 +69,9 @@ class GetAllDataController {
                 $data_action = $lifestyle->getOneAction($data);
                 break;
             case 'single':
+                $single = new Single($this->entityManager);
+                $data = $param;
+                $data_action = $single->getOneAction($data);
                 break;
             
             case 'menuSubscription':

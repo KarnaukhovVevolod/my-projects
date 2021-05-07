@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="daterestaurant")
  * @ORM\Entity
  */
+
 class Daterestaurant
 {
     /**
@@ -44,5 +45,6 @@ class Daterestaurant
     public function getDate(){
         return $this->date;
     }
-
+    
+    
 }
