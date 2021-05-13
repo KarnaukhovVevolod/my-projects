@@ -44,7 +44,6 @@ class PhotoFonAndSideMenu {
         $photo = $this->entityManager->getRepository(Photorestaurant::class)
                 ->find('17');
         
-        
         $sideMenu = new TableSideMenuRestaurant();
         $textMenu = '<p>Привет! Меня зовут  <strong>Елена Грэй</strong>. '
                 . 'Я профессионал в организации праздников, различных событий, мероприятий.  '
@@ -60,6 +59,25 @@ class PhotoFonAndSideMenu {
         $this->entityManager->flush();
     }
     
+    public function writePhotoFonIndex()
+    {
+        $photo = $this->entityManager->getRepository(Photorestaurant::class)
+                ->find('17');
+        
+        $sideMenu = new TableSideMenuRestaurant();
+        $textMenu = '<p>Привет! Меня зовут  <strong>Елена Грэй</strong>. '
+                . 'Я генеральный директор рестрана этого ресторана. Я собрала очень класную '
+                . 'команду, которая помогает сделать ресторан очень уютным местом, где можно вкусно поесть, '
+                . 'а также интересно отдохнуть на различных мероприятиях, которых проходят в ресторане. '
+                . '<br> В общем <br> Друзья </br> приходите, надеюсь вам понравиться у нас. Всего вам хорошего и удачного дня!'
+                ;
+        $sideMenu->setHead('Обо Мне')
+                ->setPage(3)
+                ->setPhoto($photo)
+                ->setTextMenu($textMenu);
+        $this->entityManager->persist($sideMenu);
+        $this->entityManager->flush();
+    }
     //для странички еда
     public function writePhotoFonFoods()
     {

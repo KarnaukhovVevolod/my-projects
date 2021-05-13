@@ -12,7 +12,7 @@ use Restaurant\Service\LoadingDatabaseManager;
 use Restaurant\Service\LoadingDatabaseLifestyle;
 use Restaurant\Service\LoadingDatabaseFoods;
 use Restaurant\Service\LoadingDatabaseSingle; 
-
+use Restaurant\Service\GetAuxiliaryData\PhotoFonAndSideMenu;
 /**
  * Description of AboutUsRestaurant
  *
@@ -63,6 +63,12 @@ class LoadDataBaseRestaurant {
         $load_db = new LoadingDatabaseSingle($this->entityManager);
         //$load_db->setDataSingleLifestyle();
         $load_db->writeFonAndSideMenuEvents();
+    }
+    
+    public function addIndex()
+    {
+        $load_db = new PhotoFonAndSideMenu($this->entityManager);
+        $load_db->writePhotoFonIndex();
     }
     
 }

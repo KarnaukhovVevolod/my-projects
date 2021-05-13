@@ -19,7 +19,7 @@ use Restaurant\Service\GetAuxiliaryData\MainAuxiliary\MainAuxiliary;
 use Restaurant\Service\LoadingDatabaseContact;
 use Restaurant\Service\GetOneAction\Foods;
 use Restaurant\Service\GetOneAction\Single;
-
+use Restaurant\Service\GetOneAction\Index;
 
 /**
  * Description of GetAllDataController
@@ -43,6 +43,10 @@ class GetAllDataController {
         switch ($action)
         {
             case 'index':
+                $index = new Index($this->entityManager);
+                $data = null;
+                $data_action = $index->getOneAction($data);
+                
                 break;
             case 'about':
                 $about = new About($this->entityManager);

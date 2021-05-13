@@ -33,6 +33,6 @@ return [
     'User',
     'Onemodule',
     'Restaurant',
-    
+    'Admin'
     
 ];

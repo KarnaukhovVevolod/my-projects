@@ -69,10 +69,12 @@ class RestaurantController extends AbstractActionController {
     {
         /*Разные способы получения данных из базы данных*/
         /*Способ 1 прямой sql запрос прямо в контроллере */
+        /*
         $employee = $this->entityManager
                 ->getRepository(Employee::class)
                 ->find(1);
         $data = $employee->getAllDataEmployee();
+         */
         //debug($data);die();
         /*Способ 2 использовать созданный репозиторий как в документации */
         
@@ -84,15 +86,21 @@ class RestaurantController extends AbstractActionController {
         
         //die();
         /*Способ 3 использовать созданный репозиторий по своему */
+        /*
         $employee = new EmployeeManager($this->entityManager);
         $data_3 = $employee->getDataEmployee();
+        */
         //debug($data_3);
         //die();
         
         /**/
+        //загрузка бокового меню
+        //$side_menu = new LoadDataBaseRestaurant($this->entityManager);
+        //$side_menu->addIndex();
+        $data_action_index = $this->getalldata->getDataAction('index');
         
         //die();
-        return new ViewModel();
+        return new ViewModel(['data_action'=>$data_action_index]);
     }
     public function aboutAction()
     {

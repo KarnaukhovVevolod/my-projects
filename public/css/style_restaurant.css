@@ -270,6 +270,9 @@
     content: 'Отменить';
     color: red;
 }
-
+.img-event-main{
+    height: 230px;
+    width: 100%;
+}
 
 

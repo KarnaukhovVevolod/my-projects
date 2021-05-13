@@ -70,6 +70,16 @@ return [
                     ]
                 ],
             ],
+            'admin' => [
+                'type' => Segment::class,
+                'options' =>[
+                    'route' => '/admin[/:action]',
+                    'defaults'=>[
+                        'controller'=> Controller\AdminController::class,
+                        'action' => 'index',
+                    ]
+                ]
+            ],
             /* not working
             'onemoduleindex'=>[
                 'type' => Segment::class,

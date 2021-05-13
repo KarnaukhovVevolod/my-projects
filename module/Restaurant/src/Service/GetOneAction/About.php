@@ -8,8 +8,6 @@
 
 namespace Restaurant\Service\GetOneAction;
 use Restaurant\Service\Interfaces\OneActionInterface;
-use Restaurant\Entity\Photorestaurant;
-use Restaurant\Entity\Videorestaurant;
 use Restaurant\Entity\TableAboutUsRestaurant;
 use Doctrine\ORM\Query\ResultSetMapping;
 

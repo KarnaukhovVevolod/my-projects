@@ -84,7 +84,7 @@ class Foods implements OneActionInterface {
         
         
         //--== пагинация данных ==--
-        debug($data);
+        //debug($data);
         //die();
         if( $data['sort'] == null ){//всех данных
             $all_data = $this->alldata($data,$limit);

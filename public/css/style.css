@@ -8300,7 +8300,8 @@ h1, h2, h3, h4, h5,
           font-size: 48px;
           color: #000000;
           line-height: 1.3;
-          font-weight: 900;
+          //font-weight: 900;
+          font-weight: 500;
           position: relative;
           font-family: "Poppins", Arial, sans-serif; }
           .owl-carousel.home-slider .slider-item .slider-text h1:after {
@@ -8544,9 +8545,11 @@ h1, h2, h3, h4, h5,
   width: 100%; }
   .blog-entry .text h3 {
     font-size: 20px;
-    margin-bottom: 20px; }
+    margin-bottom: 20px;
+    line-height: 1;
+  }
     .blog-entry .text h3 a {
-      color: #000000; }
+      color: #4a4646; }
   .blog-entry .text .meta {
     position: relative;
     z-index: 0;

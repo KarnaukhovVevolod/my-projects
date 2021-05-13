@@ -34,6 +34,7 @@ class LoadingDatabaseSingle {
         $writeFonAndSidemenu = new PhotoFonAndSideMenu($this->entityManager);
         $writeFonAndSidemenu->writePhotoFonSingleEvents();
     }
+    
     //записываем статьи про еду
     public function setDataSingleFoods()
     {
