@@ -247,14 +247,14 @@ class ComentForm extends Form {
                         'mimeType' => ['image/jpeg', 'image/png','image/jpg']
                     ]
                 ],
-                /* // проверка на количество загружаемых файлов
+                 // проверка на количество загружаемых файлов
                 ['name' => 'FileCount',
                     'options' =>[
                         'max'=>1,
                         'min'=>1
                     ]
                 ],
-                */
+                /**/
                 ['name' => 'FileIsImage'],
                 [
                     'name' => 'FileImageSize',

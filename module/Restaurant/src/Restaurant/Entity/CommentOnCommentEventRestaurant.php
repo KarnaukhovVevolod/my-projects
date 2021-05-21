@@ -23,9 +23,9 @@ class CommentOnCommentEventRestaurant
     private $id;
 
     /**
-     * @var string|null
+     * @var string
      *
-     * @ORM\Column(name="name_user", type="string", length=100, nullable=true)
+     * @ORM\Column(name="name_user", type="string", length=100, nullable=false)
      */
     private $nameUser;
 
@@ -35,6 +35,13 @@ class CommentOnCommentEventRestaurant
      * @ORM\Column(name="message_user", type="string", length=1000, nullable=false)
      */
     private $messageUser;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="reply", type="string", length=110, nullable=true)
+     */
+    private $reply;
 
     /**
      * @var \Restaurant\Entity\PhotoCommentRestaurant

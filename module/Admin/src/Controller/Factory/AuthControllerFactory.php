@@ -9,23 +9,26 @@
 namespace Admin\Controller\Factory;
 use Interop\Container\ContainerInterface;
 use Zend\ServiceManager\Factory\FactoryInterface;
-use Admin\Controller\AdminController;
-use Zend\Session\SessionManager;
 use Zend\Authentication\AuthenticationService;
-
+use Admin\Service\AdminManager;
+use Admin\Service\AuthManager;
+use Admin\Controller\AuthController;
 /**
- * Description of AdminControllerFactory
+ * Description of AuthControllerFactory
  *
  * @author Seva
  */
-class AdminControllerFactory implements FactoryInterface {
-    //put your code here
+class AuthControllerFactory implements FactoryInterface {
+    
+    
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null) {
         $entityManager = $container->get('doctrine.entitymanager.orm_default');
-        $sessionManager = $container->get(SessionManager::class);
-        $sessionContainer_2 = $container->get('ContainerNamespaceDiffer');
-        $authManager = $container->get(\Zend\Authentication\AuthenticationService::class);
-        return new AdminController($entityManager, $sessionContainer_2, $sessionManager, $authManager);
+        
+        
+        $authManager = $container->get(AuthManager::class) ;
+        $adminManager = $container->get(AdminManager::class); //new AdminManager($entityManager);
+        return new AuthController($entityManager, $authManager, $adminManager);
     }
     
+    //put your code here
 }

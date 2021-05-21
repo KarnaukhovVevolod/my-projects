@@ -20,7 +20,13 @@
         "zendframework/zend-mail": "^2.10",
         "laminas/laminas-i18n": "^2.11",
         "laminas/laminas-math": "^3.2",
-        "laminas/laminas-session": "^2.10"
+        "laminas/laminas-session": "^2.10",
+        "zendframework/zend-authentication": "^2.7",
+        "laminas/laminas-captcha": "^2.10",
+        "zendframework/zend-text": "^2.7",
+        "laminas/laminas-text": "^2.8",
+        "zendframework/zend-crypt": "^3.3",
+        "zendframework/zend-mvc-plugins": "^1.0"
     },
     "autoload": {
         "psr-4": {

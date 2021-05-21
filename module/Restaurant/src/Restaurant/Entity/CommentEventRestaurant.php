@@ -23,9 +23,9 @@ class CommentEventRestaurant
     private $id;
 
     /**
-     * @var string|null
+     * @var string
      *
-     * @ORM\Column(name="name_user", type="string", length=100, nullable=true)
+     * @ORM\Column(name="name_user", type="string", length=100, nullable=false)
      */
     private $nameUser;
 

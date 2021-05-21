@@ -36,5 +36,12 @@ class CategoryFoodsEventRestaurant
      */
     private $foodsEvent;
 
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="link", type="string", length=150, nullable=true)
+     */
+    private $link;
+
 
 }
