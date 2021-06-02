@@ -16,4 +16,8 @@ class IndexController extends AbstractActionController
     {
         return new ViewModel();
     }
+    public function aboutAction()
+    {
+        return $this->redirect()->toRoute('roles', ['action'=>'index']);
+    }
 }

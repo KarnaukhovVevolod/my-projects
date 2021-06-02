@@ -1,0 +1,77 @@
+<?php
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+namespace Adminrule\View\Helper;
+
+use Zend\View\Helper\AbstractHelper;
+use Restaurant\Entity\Adminrole;
+/**
+ * Description of CurrentUser
+ *
+ * @author Seva
+ */
+class CurrentUser extends AbstractHelper {
+    //put your code here
+    /**
+     * Entity manager.
+     * @var Doctrine\ORM\EntityManager
+     */
+    private $entityManager;
+    
+    /**
+     * Authentication service.
+     * @var Zend\Authentication\AuthenticationService
+     */
+    private $authService;
+    
+    /**
+     * Previously fetched User entity.
+     * @var Restaurant\Entity\Adminrole
+     */
+    private $user = null;
+    
+    /**
+     * Constructor. 
+     */
+    public function __construct($entityManager, $authService) 
+    {
+        $this->entityManager = $entityManager;
+        $this->authService = $authService;
+    }
+    
+    /**
+     * Returns the current User or null if not logged in.
+     * @param bool $useCachedUser If true, the User entity is fetched only on the first call (and cached on subsequent calls).
+     * @return User|null
+     */
+    public function __invoke($useCachedUser = true)
+    {
+        // Check if User is already fetched previously.
+        if ($useCachedUser && $this->user!==null)
+            return $this->user;
+        
+        // Check if user is logged in.
+        if ($this->authService->hasIdentity()) {
+            
+            // Fetch User entity from database.
+            $this->user = $this->entityManager->getRepository(Adminrole::class)->findOneBy(array(
+                'email' => $this->authService->getIdentity()
+            ));
+            if ($this->user==null) {
+                // Oops.. the identity presents in session, but there is no such user in database.
+                // We throw an exception, because this is a possible security problem. 
+                throw new \Exception('Not found user with such ID');
+            }
+            
+            // Return the User entity we found.
+            return $this->user;
+        }
+        
+        return null;
+    }
+}

@@ -1,0 +1,259 @@
+<?= $this->doctype() ?>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <!--
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        -->
+        <!--
+        <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,900" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i" rel="stylesheet">
+
+        <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
+        <link rel="stylesheet" href="css/animate.css">
+
+        <link rel="stylesheet" href="css/owl.carousel.min.css">
+        <link rel="stylesheet" href="css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="css/magnific-popup.css">
+
+        <link rel="stylesheet" href="css/aos.css">
+
+        <link rel="stylesheet" href="css/ionicons.min.css">
+
+        <link rel="stylesheet" href="css/flaticon.css">
+        <link rel="stylesheet" href="css/icomoon.css">
+        <link rel="stylesheet" href="css/style.css">
+        -->
+        <?= $this->headTitle('ZF Skeleton Application')->setSeparator(' - ')->setAutoEscape(false) ?>
+
+        <?= $this->headMeta()
+            ->appendName('viewport', 'width=device-width, initial-scale=1.0, shrink-to-fit=no')
+            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+        ?>
+        <!--
+        <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,900" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i" rel="stylesheet">
+        -->
+        <!-- Le styles -->
+        <?= $this->headLink(['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'])
+            //->prependStylesheet($this->basePath('css/style.css'))
+           // ->prependStylesheet($this->basePath('css/bootstrap.min.css'))
+            /*
+            ->prependStylesheet($this->basePath('css/open-iconic-bootstrap.min.css'))
+            ->prependStylesheet($this->basePath('css/animate.css'))
+            ->prependStylesheet($this->basePath('css/owl.carousel.min.css'))
+            ->prependStylesheet($this->basePath('css/owl.theme.default.min.css'))
+            ->prependStylesheet($this->basePath('css/magnific-popup.css'))
+            ->prependStylesheet($this->basePath('css/aos.css'))
+            ->prependStylesheet($this->basePath('css/ionicons.min.css'))
+            ->prependStylesheet($this->basePath('css/flaticon.css'))
+            ->prependStylesheet($this->basePath('css/icomoon.css'))
+            ->prependStylesheet($this->basePath('css/style.css'))
+            */
+        ->prependStylesheet($this->basePath('css/style_editesite.css'))
+        ->prependStylesheet($this->basePath('css/css/font-awesome.min.css'))
+        ->prependStylesheet($this->basePath('css/style_restaurant.css'))
+        ->prependStylesheet($this->basePath('css/style.css'))
+        ->prependStylesheet($this->basePath('css/icomoon.css'))
+        ->prependStylesheet($this->basePath('css/flaticon.css'))
+        ->prependStylesheet($this->basePath('css/ionicons.min.css'))
+        ->prependStylesheet($this->basePath('css/aos.css'))
+        ->prependStylesheet($this->basePath('css/magnific-popup.css'))
+        ->prependStylesheet($this->basePath('css/owl.theme.default.min.css'))
+        ->prependStylesheet($this->basePath('css/owl.carousel.min.css'))
+        ->prependStylesheet($this->basePath('css/animate.css'))
+        ->prependStylesheet($this->basePath('css/open-iconic-bootstrap.min.css'))
+        //->prependStylesheet($this->basePath('css/font-awesome.css'))    
+        ?>
+        
+        <!--<link rel="stylesheet" href="<?php // $this->basePath('css/style.css') ?>">
+        -->
+        <!-- Scripts -->
+        <?php /* $this->inlineScript()
+            //->prependFile($this->basePath('js/bootstrap.min.js'))
+            //->prependFile($this->basePath('js/js_restaurant/'))
+            ->prependFile($this->basePath('js/js_restaurant/jquery.min.js'))
+            ->prependFile($this->basePath('js/js_restaurant/jquery-migrate-3.0.1.min.js'))
+            ->prependFile($this->basePath('js/js_restaurant/popper.min.js'))
+            ->prependFile($this->basePath('js/js_restaurant/bootstrap.min.js'))
+            ->prependFile($this->basePath('js/js_restaurant/jquery.easing.1.3.js'))
+            ->prependFile($this->basePath('js/js_restaurant/jquery.waypoints.min.js'))
+            ->prependFile($this->basePath('js/js_restaurant/jquery.stellar.min.js'))
+            ->prependFile($this->basePath('js/js_restaurant/owl.carousel.min.js'))
+            ->prependFile($this->basePath('js/js_restaurant/jquery.magnific-popup.min.js'))
+            ->prependFile($this->basePath('js/js_restaurant/aos.js'))
+            ->prependFile($this->basePath('js/js_restaurant/jquery.animateNumber.min.js'))
+            ->prependFile($this->basePath('js/js_restaurant/scrollax.min.js'))
+            ->prependFile($this->basePath('js/js_restaurant/google-map.js'))
+            ->prependFile($this->basePath('js/js_restaurant/main.js'))
+            //->prependFile($this->basePath('js/js_restaurant/'))
+            */
+        ?>
+        <!--
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+        -->
+    </head>
+    <body>
+        <!--
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <a class="navbar-brand" href="<?php // $this->url('home') ?>">
+                        <img src="<?php //$this->basePath('img/zf-logo-mark.svg') ?>" height="28" alt="Zend Framework <?php // \Application\Module::VERSION ?>"/>&nbsp;Skeleton Application1
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="<?php // $this->url('home') ?>">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="<?php //$this->url('application') ?>">Application <span class="sr-only">(current)</span></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="<?php //$this->url('user',['action'=>'index']) ?>">User <span class="sr-only">(current)</span></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="<?php //$this->url('onemodule') ?>">Onemodule <span class="sr-only">(current)</span></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="<?php //$this->url('onemodule',['action'=>'one']) ?>">New Onemodule <span class="sr-only">(current)</span></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="<?php //$this->url('onemodule',['action'=>'patterndelegirovaniy']) ?>">delegation design pattern<span class="sr-only">(current)</span></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="<?php //$this->url('restaurant') ?>"> Restaurant home <span class="sr-only">(current)</span></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="<?php //$this->url('restaurant',['action'=>'about']) ?>"> Restaurant about <span class="sr-only">(current)</span></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="<?php //$this->url('restaurant',['action'=>'contact']) ?>"> Restaurant contact <span class="sr-only">(current)</span></a>
+                        </li>
+                    </ul>
+                </div>
+                
+            </div>
+        </nav>
+        -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="index.html">Stories<span>.</span></a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+                  <li class="nav-item"><a href="<?=  $this->url('home') ?>" class="nav-link" >Home Zend</a></li>
+	          <li class="nav-item active"><a href="<?= $this->url('restaurant',['action'=>'index']) ?>" class="nav-link">Home</a></li>
+	          <li class="nav-item"><a href="<?= $this->url('restaurant',['action'=>'about']) ?>" class="nav-link">About</a></li>
+	          <li class="nav-item"><a href="<?= $this->url('restaurant',['action'=>'foods']) ?>" class="nav-link">Foods</a></li>
+	          <li class="nav-item"><a href="<?= $this->url('restaurant',['action'=>'lifestyle']) ?>" class="nav-link">Lifestyle</a></li>
+	          <li class="nav-item"><a href="<?= $this->url('restaurant',['action'=>'contact']) ?>" class="nav-link">Contact</a></li>
+                  шаблон
+	        </ul>
+	      </div>
+	    </div>
+	</nav>
+    <!-- END nav -->
+        <div class="container1">
+            <?= $this->content ?>
+            
+            <!--<hr>
+            <footer>
+                <p>&copy; 2055 - <?php // date('Y') ?> by Zend Technologies Ltd. All rights reserved.</p>
+                это мой шаблон
+            </footer>
+            -->
+            
+            
+        </div>
+        
+         <!-- loader -->
+         
+         <!--
+        <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+        -->
+        конец шаблона
+        <!-- Scripts -->
+        <?= $this->inlineScript()
+            /*
+            ->prependFile($this->basePath('js/js_restaurant/jquery.min.js'))
+            ->prependFile($this->basePath('js/js_restaurant/jquery-migrate-3.0.1.min.js'))
+            ->prependFile($this->basePath('js/js_restaurant/popper.min.js'))
+            ->prependFile($this->basePath('js/js_restaurant/bootstrap.min.js'))
+            ->prependFile($this->basePath('js/js_restaurant/jquery.easing.1.3.js'))
+            ->prependFile($this->basePath('js/js_restaurant/jquery.waypoints.min.js'))
+            ->prependFile($this->basePath('js/js_restaurant/jquery.stellar.min.js'))
+            ->prependFile($this->basePath('js/js_restaurant/owl.carousel.min.js'))
+            ->prependFile($this->basePath('js/js_restaurant/jquery.magnific-popup.min.js'))
+            ->prependFile($this->basePath('js/js_restaurant/aos.js'))
+            ->prependFile($this->basePath('js/js_restaurant/jquery.animateNumber.min.js'))
+            ->prependFile($this->basePath('js/js_restaurant/scrollax.min.js'))
+            ->prependFile($this->basePath('js/js_restaurant/google-map.js'))
+            ->prependFile($this->basePath('js/js_restaurant/main.js'))
+            */
+            ->prependFile($this->basePath('js/js_restaurant/main.js'))
+            ->prependFile($this->basePath('js/js_restaurant/google-map.js'))
+            ->prependFile("https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false")            
+            ->prependFile($this->basePath('js/js_restaurant/scrollax.min.js'))
+                                        
+                        ->prependFile($this->basePath('js/js_restaurant/my_js.js')) 
+                        ->prependFile($this->basePath('js/js_restaurant/comment.js'))                
+                        //->prependFile($this->basePath('js/js_restaurant/jquery-3.2.1.min.js'))                
+                                   
+                        ->prependFile($this->basePath('js/js_restaurant/jquery.animateNumber.min.js'))
+                        ->prependFile($this->basePath('js/js_restaurant/aos.js'))
+                        ->prependFile($this->basePath('js/js_restaurant/jquery.magnific-popup.min.js'))
+                        ->prependFile($this->basePath('js/js_restaurant/owl.carousel.min.js'))
+                        ->prependFile($this->basePath('js/js_restaurant/jquery.stellar.min.js'))
+                        ->prependFile($this->basePath('js/js_restaurant/jquery.waypoints.min.js'))
+                        ->prependFile($this->basePath('js/js_restaurant/jquery.easing.1.3.js'))
+                        ->prependFile($this->basePath('js/js_restaurant/bootstrap.min.js'))
+                        ->prependFile($this->basePath('js/js_restaurant/popper.min.js'))
+                        ->prependFile($this->basePath('js/js_restaurant/jquery-migrate-3.0.1.min.js'))
+                        ->prependFile($this->basePath('js/js_restaurant/jquery.min.js'))
+                                        
+        ?>
+    </body>
+</html>
+
+

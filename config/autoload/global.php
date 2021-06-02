@@ -17,10 +17,33 @@ use Doctrine\DBAL\Driver\PDOPgSql\Driver as PDOPgSqlDriver;
 use Zend\Session\Storage\SessionArrayStorage;
 use Zend\Session\Validator\RemoteAddr;
 use Zend\Session\Validator\HttpUserAgent;
+use Zend\Cache\Storage\Adapter\Filesystem;
 
 return [
     // ...
+    // Настройка кэша
+    'caches' => [
+        'FilesystemCache'=>[
+            'adapter' =>[
+                'name' => Filesystem::class,
+                'options' => [
+                    // Store cached data in this directory.
+                    'cache_dir' =>'./data/cache',
+                    // Store cached data for 1 hour.
+                    'ttl' => 60*60*1
+                ],
+            ],
+            'plugins'=> [
+                [
+                    'name'=> 'serializer',
+                    'options'=>[
+                    ],
+                ],
+            ],
+        ],
+    ],
     'doctrine' => [
+        
         'connection' => [
             'orm_default' => [
                 //'driverClass' => PDOMySqlDriver::class,
@@ -62,6 +85,22 @@ return [
             ],
         ],
         
+        //настройка миграции
+        
+        'migrations_configuration' =>[
+            'orm_default' => [
+                //'directory' => 'data/Migrations',
+                //'name'=> 'Doctrine Database Migrations',
+                //'namespace' => 'Migrations',
+                //'table'     => 'migrations',
+                //'NAMESPACEgfhbfg'=>'Migrations'
+                //'migrations_directory'=>'/data/Migrations',
+            ]
+        ]
+         /* 
+         * *
+         */
+        
     ],
     //Настройки сессии.
     'session_config' =>[
@@ -82,5 +121,27 @@ return [
     'session_storage' => [
         'type' => SessionArrayStorage::class
     ],
-    
+    /*
+    // Настройка кэша
+    'caches' => [
+        'FilesystemCache'=>[
+            'adapter' =>[
+                'name' => Filesystem::class,
+                'options' => [
+                    // Store cached data in this directory.
+                    'cache_dir' =>'./data/cache',
+                    // Store cached data for 1 hour.
+                    'ttl' => 60*60*1
+                ],
+            ],
+            'plugins'=> [
+                [
+                    'name'=> 'serializer',
+                    'options'=>[
+                    ],
+                ],
+            ],
+        ],
+    ]
+    */
 ];

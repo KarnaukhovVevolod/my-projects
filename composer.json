@@ -26,7 +26,12 @@
         "zendframework/zend-text": "^2.7",
         "laminas/laminas-text": "^2.8",
         "zendframework/zend-crypt": "^3.3",
-        "zendframework/zend-mvc-plugins": "^1.0"
+        "zendframework/zend-mvc-plugins": "^1.0",
+        "zendframework/zend-permissions-rbac": "^3.0",
+        "doctrine/migrations": "^3.1",
+        "zendframework/zend-cache": "^2.9",
+        "zendframework/zend-serializer": "^2.9",
+        "laminas/laminas-serializer": "^2.10"
     },
     "autoload": {
         "psr-4": {
@@ -34,7 +39,8 @@
             "User\\": "module/User/src",
             "Onemodule\\": "module/Onemodule/src/",
             "Restaurant\\": "module/Restaurant/src",
-            "Admin\\": "module/Admin/src"
+            "Admin\\": "module/Admin/src",
+            "Adminrule\\":"module/Adminrule/src"
         }
     },
     "autoload-dev": {

@@ -50,8 +50,9 @@ class AdminController extends AbstractActionController {
     {
         if($this->identity() != null) //используем плагин zend-mvc-plugins
         {
-            debug($this->identity());
-            die();
+            //debug($this->identity());
+            //die();
+            
         }
         
         //session
@@ -128,7 +129,7 @@ class AdminController extends AbstractActionController {
         $step = 4;
         
         $data_user = $this->authManager->getIdentity();
-        debug($data_user);die();
+        //debug($data_user);die();
         
         $form = new LoginForm($url, $step);
         return new ViewModel(['form'=>$form]);

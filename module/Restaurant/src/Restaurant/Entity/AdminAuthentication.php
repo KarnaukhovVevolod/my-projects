@@ -71,5 +71,12 @@ class AdminAuthentication
      */
     private $pwdResetTokenCreationDate;
 
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(name="passw", type="string", length=64, nullable=true)
+     */
+    private $passw;
+
 
 }

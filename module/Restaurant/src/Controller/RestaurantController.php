@@ -139,9 +139,6 @@ class RestaurantController extends AbstractActionController {
         //$data_action_contact = $this->getalldata->writeDataBase('contact', null);
         $data_action_contact = $this->getalldata->getDataAction('contact');
         
-        
-        
-        
         return new ViewModel(['data_action'=>$data_action_contact, 'contact_form'=>$contact_form]);
     }
     public function foodsAction()

@@ -11,6 +11,7 @@
  * This should be an array of module namespaces used in the application.
  */
 return [
+    'Zend\Serializer',
     'Zend\Mvc\Plugin\FilePrg',
     'Zend\Mvc\Plugin\FlashMessenger',
     'Zend\Mvc\Plugin\Identity',
@@ -38,6 +39,7 @@ return [
     'User',
     'Onemodule',
     'Restaurant',
-    'Admin'
+    //'Admin',
+    'Adminrule'
     
 ];
