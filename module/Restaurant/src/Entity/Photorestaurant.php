@@ -38,5 +38,13 @@ class Photorestaurant
     {
         return ['id'=>$this->id,'photo'=>$this->photo];
     }
-
+    
+    public function getId(){
+        return $this->id;
+    }
+    
+    public function getPhoto(){
+        return $this->photo;
+    }
+    
 }

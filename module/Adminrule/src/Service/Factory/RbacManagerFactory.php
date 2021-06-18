@@ -60,7 +60,7 @@ class RbacManagerFactory {
                             'cache_dir' =>'./data/cache',
                             // Store cached data for 1 hour.
                             //'ttl' => 60*60*1
-                            'ttl' => 60*60*3
+                            'ttl' => 60*60*5
                         ],
                     ],
                     'plugins'=> [

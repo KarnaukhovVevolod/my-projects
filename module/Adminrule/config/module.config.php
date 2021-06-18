@@ -224,7 +224,8 @@ return [
              Service\RoleManager::class => Service\Factory\RoleManagerFactory::class, 
             Service\AdminroleManager::class => Service\Factory\AdminroleManagerFactory::class,
             //Filesystem::class=>InvokableFactory::class
-    
+           Service\SiteeditingManager::class => Service\Factory\SiteeditingManagerFactory::class,
+            
         ]
     ],
     'view_manager' => [

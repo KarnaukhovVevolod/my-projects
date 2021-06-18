@@ -1,13 +1,57 @@
 /* страница с контактами */
 .contact-head-fon{
-    
+    width: 40%;
 }
 .contact-section-edite_1{
-    
+    width: 40%;
 }
 .contact-section-edite_2{
+    width: 50%;
+}
+.contact-section-edite_2 .row{
+    margin-right: 0!important;
+    margin-left: -49px!important;
+}
+.footer_edite_site{
+    width: 50%;
+}
+
+.fon-photo-edite{
+    width: 50px;
+}
+.button-table{
+    background:white;
+    border:1px solid #ffd9d9;
     
+}
+.copy-column-fon-table{
+    display: none;
+}
+.copy-column-image-table{
+    display: none;
 }
 
 
+.photo_pagination_contact{
+    padding:3px 9px;
+    border:2px solid whitesmoke;
+    width: 40px;
+    margin-left:5px;
+}
+.photo_pagination_contact:hover{
+    cursor: pointer;
+}
 
+.image-scroll-table {
+    overflow: scroll; /* Добавляем полосы прокрутки */
+    /*width: 300px; /* Ширина блока */
+    height: 400px; /* Высота блока */
+    padding: 5px; /* Поля вокруг текста */
+    border: solid 4px whitesmoke; /* Параметры рамки */
+    
+    
+}
+
+.copy-column-contact-table{
+    display:none;
+}

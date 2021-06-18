@@ -11,6 +11,7 @@ namespace Adminrule\Controller\Factory;
 use Adminrule\Controller\SiteeditingController;
 use Interop\Container\ContainerInterface;
 use Zend\ServiceManager\Factory\Factoryinterface;
+use Adminrule\Service\SiteeditingManager;
 
 
 /**
@@ -22,7 +23,8 @@ class SiteeditingControllerFactory implements FactoryInterface {
     //put your code here
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null) {
         $entityManager = $container->get('doctrine.entitymanager.orm_default');
+        $editManager = $container->get(SiteeditingManager::class);
         
-        return new SiteeditingController($entityManager);
+        return new SiteeditingController($entityManager, $editManager);
     }
 }

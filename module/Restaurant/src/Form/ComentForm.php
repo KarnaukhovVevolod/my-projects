@@ -248,7 +248,7 @@ class ComentForm extends Form {
                     ]
                 ],
                  // проверка на количество загружаемых файлов
-                ['name' => 'FileCount',
+                /*['name' => 'FileCount',
                     'options' =>[
                         'max'=>1,
                         'min'=>1

@@ -30,6 +30,7 @@ class LoginForm extends Form
      */
     protected function addElements() 
     {
+        
         // Add "email" field
         $this->add([            
             'type'  => 'text',
