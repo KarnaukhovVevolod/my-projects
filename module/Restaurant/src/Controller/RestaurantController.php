@@ -67,48 +67,12 @@ class RestaurantController extends AbstractActionController {
     }
     public function indexAction()
     {
-        /*Разные способы получения данных из базы данных*/
-        /*Способ 1 прямой sql запрос прямо в контроллере */
-        /*
-        $employee = $this->entityManager
-                ->getRepository(Employee::class)
-                ->find(1);
-        $data = $employee->getAllDataEmployee();
-         */
-        //debug($data);die();
-        /*Способ 2 использовать созданный репозиторий как в документации */
-        
-        /*$employee_new = $this->employeeManager
-                ->getDataEmployee();
-        debug($employee_new);
-         * *
-         */
-        
-        //die();
-        /*Способ 3 использовать созданный репозиторий по своему */
-        /*
-        $employee = new EmployeeManager($this->entityManager);
-        $data_3 = $employee->getDataEmployee();
-        */
-        //debug($data_3);
-        //die();
-        
-        /**/
-        //загрузка бокового меню
-        //$side_menu = new LoadDataBaseRestaurant($this->entityManager);
-        //$side_menu->addIndex();
         $data_action_index = $this->getalldata->getDataAction('index');
-        
-        //die();
         return new ViewModel(['data_action'=>$data_action_index]);
     }
     public function aboutAction()
     {
-        //$about = new LoadDataBaseRestaurant($this->entityManager);
-        //$about->addAboutUsData();
         $data_action_about = $this->getalldata->getDataAction('about');
-        //debug($data_action_about);
-        //die();
         
         return new ViewModel(['data_action'=>$data_action_about]);
     }
@@ -125,35 +89,17 @@ class RestaurantController extends AbstractActionController {
             $messages = $process_contact_form->ProcessingForm($data, $action);
             
             $response = $this->getResponse();
-            //$url_referer = $this->getRequest()->getHeader('Referer')->getUri();
             $response->setContent(\Zend\Json\Json::encode($messages));
-            ///$response->setContent(\Zend\Json\Json::encode($data));
             return $response;
-            
-            //$response = $this->getResponse();
-            //$url_referer = $this->getRequest()->getHeader('Referer')->getUri();
-            //$response->setContent(\Zend\Json\Json::encode($ajax_data));
-            
-            //return $response;
         }
-        //$data_action_contact = $this->getalldata->writeDataBase('contact', null);
         $data_action_contact = $this->getalldata->getDataAction('contact');
         
         return new ViewModel(['data_action'=>$data_action_contact, 'contact_form'=>$contact_form]);
     }
     public function foodsAction()
     {
-        //загружаем фото в базу данных
-        //$load_photo = new LoadingDatabaseManager($this->entityManager);
-        //$load_photo->setDataPhoto();
-        //загружаем данные в базу данных
-        //$load_db_foods = new LoadDataBaseRestaurant($this->entityManager);
-        //$load_db_foods->addFoods();
         $id = $this->params()->fromRoute('id');
         $sort = $this->params()->fromRoute('sort');
-        
-        //debug($id);
-        //debug($sort);//die();
         $url1 = $this->url()->fromRoute('restaurant',['action'=>'foods','id'=>'id','sort'=>'sort']);
         
         $data_action_foods = $this->getalldata->getDataAction('foods', ['id' => $id,'sort' => $sort,'url' => $url1]);
@@ -161,54 +107,22 @@ class RestaurantController extends AbstractActionController {
         return new ViewModel(['data_action' => $data_action_foods]);
     }
     public function lifestyleAction()
-    {
-        //$loadDataBase = new LoadDataBaseRestaurant($this->entityManager);
-        //$loadDataBase->addLifestyle();
-        
-        //die();
-        //получаем параметры от маршрута
-        
+    {   
         $id = $this->params()->fromRoute('id');
         $sort = $this->params()->fromRoute('sort');
-        
-        //debug($id);
-        //debug($sort);//die();
         $url1 = $this->url()->fromRoute('restaurant',['action'=>'lifestyle','id'=>'id','sort'=>'sort']);
         
         $data_action_lifestyle = $this->getalldata->getDataAction('lifestyle', ['id' => $id,'sort' => $sort,'url' => $url1]);
         
-        //debug($data_action_lifestyle);
-        //die();
-        //$tr = $data_action_lifestyle[3][0]['dateEvent']['date']->getData();
-        //debug($data_action_lifestyle);die();
-        //debug($data_action_lifestyle[3][0]['dateEvent']['date']->format('Y-m-d'));
-        //die();
         return new ViewModel(['data_action' => $data_action_lifestyle]);
     }
     public function singleAction()
     {
-        //загрузка еды
-        //$loadDataBase = new LoadDataBaseRestaurant($this->entityManager);
-        //$loadDataBase->addSingleFoods();
-        
-        //загрузка фото в базу (события статьи)
-        //$photo_load_event_single = new LoadingDatabaseManager($this->entityManager);
-        //$photo_load_event_single->setDataPhotoSingleEvent();
-        //die();
-        //Загрузка данных в базу (События статьи)
-        //$loadDataBase = new LoadDataBaseRestaurant($this->entityManager);
-        //$loadDataBase->addSingleEvents();
-        //die();
         $id = $this->params()->fromRoute('id');
         $sort = $this->params()->fromRoute('sort');
         $url1 = $this->url()->fromRoute('restaurant',['action'=>'single','id'=>'id','sort'=>'sort']);
         
-        
-        //debug($sort);
-        //die();
-        //$url_prev = $this->getRequest()->getHeader('Referer')->getUri();debug($url_prev);die();
         $data_action_single = $this->getalldata->getDataAction('single', ['id' => $id,'sort' => $sort,'url' => $url1]);
-       // debug($data_action_single);die();
         if(isset($data_action_single[4]) && $data_action_single[4] == 'Еда'){
             $url_prev = $this->url()->fromRoute('restaurant',['action'=>'foods']);
         }else{
@@ -244,12 +158,8 @@ class RestaurantController extends AbstractActionController {
                 $ajax_data['text'] = 'E-mail '.$data['email'] .' успешно подписан на новости';
                 $ajax_data['param'] = 1;
             }else{
-                
                 $errors = $mailform->getMessages();
                 $err;
-                //$ajax_data = 'ошибка валидации';
-                //debug($errors);
-                //die();
                 
                 if(isset($errors['email']['emailAddressInvalidFormat'])){
                     $err = 'Введён неправильный формат E-mail';
@@ -268,17 +178,11 @@ class RestaurantController extends AbstractActionController {
             $response->setContent(\Zend\Json\Json::encode($ajax_data));
             
             return $response;
-            //return $this->redirect()->toUrl($url_referer) ;
-            
         }
         
     }
     public function commentformAction()
     {
-        //$response = $this->getResponse();
-        //$response->setContent(\Zend\Json\Json::encode('ошибка метод запроса другой'));
-        //return $response;
-        //debug('comment');
         $action = $this->url()->fromRoute('restaurant',['action'=>'commentform']);
         
         if($this->getRequest()->isPost()){
@@ -294,8 +198,6 @@ class RestaurantController extends AbstractActionController {
             
             $response = $this->getResponse();
             $response->setContent(\Zend\Json\Json::encode($get_data));
-            //$response->setContent('text');
-            //return $get_data;
             
             return $response;
         }

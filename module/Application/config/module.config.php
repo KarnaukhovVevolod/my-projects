@@ -46,30 +46,6 @@ return [
                     ],
                 ],
             ],
-            'user' => [
-                'type'    => Segment::class,
-                'options' => [
-                    'route'    => '/user[/:action]',
-                    'defaults' => [
-                        //'controller' => Controller\IndexController::class,
-                        'controller'=> Controller\UserController::class,
-                        'action'     => 'index',
-                    ],
-                ],
-            ],
-            
-            'onemodule' => [
-                'type' => Segment::class,
-                'options' => [
-                    'route' => '/onemodule[/:action]',
-                    'defaults'=>[
-                        'controller'=> Controller\OnemoduleController::class,
-                        //'action' => 'onemodule',
-                        //'controller' => Controller\IndexController::class,
-                        'action' => 'index',
-                    ],
-                ],
-            ],
             'restaurant' => [
                 'type' => Segment::class,
                 'options' => [
@@ -110,17 +86,7 @@ return [
                     ]
                 ]
             ],
-            /* not working
-            'onemoduleindex'=>[
-                'type' => Segment::class,
-                'options' =>[
-                    'route' =>'/index[/:action]',
-                    'defaults'=> [
-                        'controller' => Controller\IndexController::class,
-                        'action' => 'index',
-                    ]
-                ]
-            ],*/
+            
         ],
     ],
     'controllers' => [

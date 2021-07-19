@@ -29,8 +29,6 @@ class IndexController extends AbstractActionController {
     }
     public function indexAction()
     {
-        echo 'only hello';
-        die();
         return new ViewModel();
     }
     

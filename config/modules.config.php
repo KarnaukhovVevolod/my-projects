@@ -36,10 +36,10 @@ return [
     
     //my modules
     
-    'User',
-    'Onemodule',
+    //'User',
+    //'Onemodule',
     'Restaurant',
     //'Admin',
-    'Adminrule'
+    //'Adminrule'
     
 ];
